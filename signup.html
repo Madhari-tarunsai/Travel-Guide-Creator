@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <style>
+         body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background-image: url("https://www.asterra.com.ph/wp-content/uploads/2023/05/Tourists.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            width: 50vh;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            background: rgba(82, 159, 169,);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+        }
+
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            gap: 10px;
+
+        }
+
+        input {
+            height: 50px;
+            border-radius: 10px;
+            font-weight: bold;
+            border: none;
+            color: rgb(0, 0, 0);
+            background-color: rgba(240, 248, 255, 0.567);
+        }
+
+        ::placeholder {
+
+            color: rgb(90, 86, 85);
+            font-weight: bold;
+            position: relative;
+            left: 10px;
+
+        }
+
+        #btn {
+            height: 40px;
+            border-radius: 10px;
+            background-color: rgb(255, 255, 255);
+            margin-top: 10px;
+            width: 80px;
+            color: rgb(115, 89, 79);
+            margin-bottom: 20px;
+            font-weight: bold;
+            position: relative;
+            left: 37%;
+        }
+
+        #btn:hover {
+            background-color: black;
+            color: white;
+           
+        }
+
+        h1 {
+            color:rgba(255, 255, 255, 0.929);
+        }
+
+        label{
+            color: rgb(252, 248, 248);
+        }
+        a{
+            color: white;
+           
+        }
+        .guest{
+            margin-top: -10px;
+        }
+        p{
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>Sign up</h1>
+        <form action="">
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="password" required>
+            <input type="password" placeholder="Confirm password" required>
+            <label for=""></label>
+            <input id="btn" type="submit">
+        </form>
+
+        <p>Already have an account? <a href="./index.html">Sign in</a></p>
+
+    </div>
+
+</body>
+</html>
