@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TripSphere</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: #333;
+            color: white;
+        }
+        .nav h1 {
+            margin-left: 0px;
+        }
+        .menu {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-grow: 1;
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .menu a:hover {
+            text-decoration: underline;
+        }
+        .toggle {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                background-color: #444;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                padding: 10px;
+                border-radius: 5px;
+            }
+            .menu.active {
+                display: flex;
+            }
+            .toggle {
+                display: block;
+            }
+        }
+        button{
+            padding: 10px;
+            font-size: larger;
+            border-radius: 20px;
+            background-color: darkblue;
+            color: aliceblue;
+
+        }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <h1>TripSphere</h1>
+      <button class="toggle" onclick="toggleMenu()">☰</button>
+      <div class="menu" id="menu">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Packages</a>
+        <a href="#">Booking</a>
+        <a href="#">Contact</a>
+        <div>
+            <button>Admin</button>
+          </div>
+          
+      </div>
+     
+    </nav>
+    <script>
+      function toggleMenu() {
+        document.getElementById("menu").classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>
