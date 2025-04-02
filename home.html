@@ -4,84 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TripSphere</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px;
-            background-color: #333;
-            color: white;
-        }
-        .nav h1 {
-            margin-left: 0px;
-        }
-        .menu {
-            display: flex;
-            gap: 40px;
-            justify-content: center;
-            flex-grow: 1;
-            align-items: center;
-        }
-        .menu a {
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .menu a:hover {
-            text-decoration: underline;
-        }
-        .toggle {
-            display: none;
-            font-size: 24px;
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-            margin-right: 20px;
-        }
-        @media (max-width: 768px) {
-            .menu {
-                display: none;
-                flex-direction: column;
-                background-color: #444;
-                position: absolute;
-                top: 60px;
-                right: 20px;
-                padding: 10px;
-                border-radius: 5px;
-            }
-            .menu.active {
-                display: flex;
-            }
-            .toggle {
-                display: block;
-            }
-        }
-        button {
-            padding: 5px 10px;
-            font-size: large;
-            border-radius: 5px;
-            background-color: darkblue;
-            color: aliceblue;
-        }
-        .menu div {
-            display: flex;
-            gap: 20px;
-            margin-left: 100px; 
-        }
-        
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://i.pinimg.com/736x/e1/5b/90/e15b900581f75d0b0fa0deb6a5785908.jpg" type="image/x-icon">
   </head>
   <body>
     <nav class="nav">
