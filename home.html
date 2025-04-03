@@ -4,16 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TripSphere</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="https://i.pinimg.com/736x/e1/5b/90/e15b900581f75d0b0fa0deb6a5785908.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="https://i.pinimg.com/736x/e1/5b/90/e15b900581f75d0b0fa0deb6a5785908.jpg"
+      type="image/x-icon"
+    />
   </head>
   <body>
+    <!-------------------------------------------navbar------------------------------------------------------------------>
     <nav class="nav">
       <h1>TripSphere</h1>
       <button class="toggle" onclick="toggleMenu()">☰</button>
       <div class="menu" id="menu">
-        <a href="#">Home</a>
-        <a href="#">About</a>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
         <a href="#">Services</a>
         <a href="#">Packages</a>
         <a href="#">Booking</a>
@@ -28,8 +33,33 @@
         document.getElementById("menu").classList.toggle("active");
       }
     </script>
+    <!------------------------------------------------------------------------------------------------------------->
     <!-- body section -->
-    
-     <!-- body section end -->
+    <div class="container" id="home">
+      <div class="box">
+        <h1>Travel The World & Explore The New Destination</h1>
+        <br />
+        <p>
+          Welcome to our travel Info. Explore new destinations and plan your
+          next adventure with us!
+        </p>
+        <br />
+        <a href="#">Packers</a>
+      </div>
+    </div>
+<!-- body section end -->
+<!------------------------------------------------------------------------------------------------------------->
+<!-- about section start -->
+<div class="about" id="about">
+  <div class="img">
+    <img src="https://thumbs.dreamstime.com/b/group-young-tourist-friends-consulting-gps-map-smart-phone-restaurant-beach-background-49932007.jpg" alt="">
+  </div>
+  <div class="text">
+    <p>Adventure travel includes hiking, trekking, and outdoor activities in destinations like the Swiss Alps or Patagonia. Cultural travel allows you to explore history, museums, and local traditions in cities like Rome or Kyoto. Relaxation travel focuses on enjoying beaches, spas, and leisure activities in destinations such as the Maldives or Bali.</p>
+  </div>
+</div>
+
+
+ <!-- about section end -->
   </body>
 </html>
