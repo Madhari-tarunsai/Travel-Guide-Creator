@@ -79,7 +79,7 @@ button {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: url("https://static.toiimg.com/thumb/113038063/Rural-tourism-in-India.jpg?width=1200&height=900");
+  background-image: url("https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/7b/5e/fd/hyderabad-s-largest-water.jpg?w=1400&h=-1&s=1");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -99,13 +99,15 @@ button {
 .box h1 {
   font-size: 30px;
   margin-bottom: 10px;
-  color: white;
+  color:black;
+  text-shadow: 4px 3px 5px  white;
 }
 
 .box p {
   font-size: 18.9px;
   margin-bottom: 15px;
-  color: white;
+  color: black;
+  text-shadow: 4px 3px 5px  white;
 }
 
 .box a {
