@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ticket_booking_slot</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      height: 100vh;
+      margin: 0;
+      position: relative;
+      background-image: url("https://gumlet.assettype.com/down-to-earth%2Fimport%2Flibrary%2Flarge%2F2023-09-20%2F0.55950800_1695195081_istock-843542714.jpg?format=auto");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    #div {
+      border: 3px solid black;
+      height: auto;
+      width: 35%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      padding: 30px;
+      border-radius: 30px;
+
+      background-color: rgba(255, 223, 186, 0.6);
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      transform: scale(1.05);
+      transition: all 0.3s ease;
+    }
+
+    #div:hover {
+      background-color: rgba(255, 223, 186, 0.8);
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+      transform: scale(1.1);
+    }
+
+    #btn {
+      border: 4px solid green;
+      padding: 10px 20px;
+      text-align: center;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      background-color: green;
+      color: aliceblue;
+      border-radius: 10px;
+      margin-left: 20px;
+    }
+    #btn1 {
+      padding: 12px 20px;
+      font-size: 18px;
+      color: white;
+      background-color: #007bff;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    #btn1:hover {
+      background-color: #0056b3;
+    }
+  </style>
+  <body>
+    <div id="div">
+      <form action="javascript:void(0);">
+        <h1>Reservation Slot</h1>
+
+        <label for="name">Enter your name:</label>
+        <input
+          type="text"
+          id="name"
+          placeholder="Shiva Shanker"
+          required
+        /><br /><br />
+
+        <label for="age">Enter your age:</label>
+        <input
+          type="number"
+          id="age"
+          placeholder="eg-23"
+          required
+        /><br /><br />
+
+        <label for="trip_date">Trip Date:</label>
+        <input type="date" id="trip_date" required /><br /><br />
+
+        <label for="return_date">Return Journey:</label>
+        <input type="date" id="return_date" required /><br /><br />
+
+        <label for="gender">Select gender:</label>
+        <select id="gender" name="gender" required>
+          <option value="">Select</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option></select
+        ><br /><br />
+
+        <label for="city">Choose a place:</label>
+        <input
+          list="cities"
+          id="city"
+          name="city"
+          placeholder="Hyderabad"
+          required
+        />
+        <datalist id="cities">
+          <option value="Eiffel Tower"></option>
+          <option value="China"></option>
+          <option value=" Peru"></option>
+          <option value="Taj Mahal"></option>
+          <option value="Italy"></option>
+          <option value="Angkor"></option>
+          <option value="forbidden city"></option>
+          <option value="Golconda"></option>
+          <option value="spain"></option>
+          <option value="petra"></option>
+          <option value="golden gate"></option>
+          <option value="louvre museum"></option></datalist
+        ><br /><br />
+
+        <label for="members">Member count:</label>
+        <input
+          type="number"
+          id="members"
+          placeholder="eg-2"
+          required
+        /><br /><br />
+
+        <button id="btn">Schedule Now</button>
+        <button id="btn1">Go_back</button>
+      </form>
+    </div>
+
+    <script>
+      let button = document.getElementById("btn");
+      let button1 = document.getElementById("btn1");
+      button.addEventListener("click", () => {
+        let name = document.getElementById("name").value.trim();
+        let age = document.getElementById("age").value.trim();
+        let tripDate = document.getElementById("trip_date").value.trim();
+        let returnDate = document.getElementById("return_date").value.trim();
+        let gender = document.getElementById("gender").value.trim();
+        let city = document.getElementById("city").value.trim();
+        let members = document.getElementById("members").value.trim();
+
+        if (
+          name === "" ||
+          age === "" ||
+          tripDate === "" ||
+          returnDate === "" ||
+          gender === "" ||
+          city === "" ||
+          members === ""
+        ) {
+          alert("Please fill in all details first.");
+        } else {
+          alert("Successfully booked your slot. Now pay the amount.");
+          setTimeout(() => {
+            window.location.href = "payment.html";
+          }, 1500);
+        }
+      });
+      button1.addEventListener("click", () => {
+        alert("You want to go back");
+        let name = prompt("Enter yes/no");
+
+        if (name.toLowerCase() === "yes") {
+          window.location.href = "home.html";
+        }
+      });
+    </script>
+  </body>
+</html>

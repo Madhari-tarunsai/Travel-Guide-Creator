@@ -322,7 +322,7 @@ button {
   border-radius: 50px;
   flex: 0.5;
   transition: flex 0.5s ease-in;
-  color: #fff;
+  color: #000;
   cursor: pointer;
   margin: 10px;
   background-size: cover;
@@ -339,10 +339,10 @@ button {
   left: 20px;
   opacity: 0;
 }
-.panel.active h3 {
+/* .panel.active h3 {
   opacity: 1;
   transition: opacity 0.4s ease-in 0.4s;
-}
+} */
 
 @media (max-width: 480px) {
   .panel:nth-of-type(4),
@@ -356,25 +356,28 @@ button {
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  background-image: url("https://static.vecteezy.com/system/resources/previews/013/596/708/non_2x/miniature-people-tourist-walking-on-the-map-as-background-travelling-or-business-travel-background-photo.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: scroll;
+  justify-content: space-between; 
+  padding: 0 20px; 
+  gap:20px;
+  background-color: lightskyblue;
 }
+
+
 .contact-left {
   display: flex;
   flex-direction: column;
   align-items: start;
   gap: 20px;
+  width: 50%; /* Ensures the contact form takes up half of the available space */
 }
+
 .contact-left-title h2 {
   font-weight: 600;
   color: #a363aa;
   font-size: 40px;
   margin-bottom: 5px;
 }
+
 .contact-left-title hr {
   border: none;
   width: 120px;
@@ -382,6 +385,7 @@ button {
   background-color: #a363aa;
   border-radius: 10px;
 }
+
 .contact-inputs {
   width: 400px;
   height: 50px;
@@ -391,17 +395,21 @@ button {
   color: #666;
   border-radius: 50px;
 }
+
 .contact-left textarea {
   height: 140px;
   padding-top: 15px;
   border-radius: 20px;
 }
+
 .contact-inputs:focus {
   border: 2px solid #ff994f;
 }
+
 .contact-inputs::placeholder {
   color: #a9a9a9;
 }
+
 .contact-left button {
   display: flex;
   align-items: center;
@@ -414,14 +422,22 @@ button {
   background: linear-gradient(270deg, #ff994f, #fa6d86);
   cursor: pointer;
 }
+
+.contact-container img {
+  width: 45%; /* Adjust image width */
+  object-fit: cover; /* Ensures the image maintains its aspect ratio while filling the space */
+}
+
 @media (max-width: 1024px) {
   .contact-container {
     flex-direction: column;
     justify-content: center;
+    align-items: center;
   }
   .contact-left {
     align-items: center;
     gap: 10px;
+    width: 100%;
   }
   .contact-left-title h2 {
     font-size: 35px;
@@ -462,23 +478,7 @@ button {
     padding: 10px 20px;
   }
 }
-@media (min-width: 1025px) {
-  body {
-    background-size: cover;
-  }
-}
 
-@media (min-width: 768px) and (max-width: 1024px) {
-  body {
-    background-size: cover;
-  }
-}
-
-@media (max-width: 767px) {
-  body {
-    background-size: cover;
-  }
-}
 
 /* contact end */
 /* footer start */
