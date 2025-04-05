@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url("https://cdn.pixabay.com/photo/2020/01/13/14/44/checkout-4762571_1280.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      font-family: Arial, sans-serif;
+    }
+    .payment-container {
+      background-color: #fff;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+    .payment-container h1 {
+      margin-bottom: 20px;
+    }
+    .payment-container input[type="tel"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .payment-container p {
+      margin: 10px 0;
+      font-weight: bold;
+    }
+    .payment-container img {
+      max-width: 200px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="payment-container">
+    <h1>Payment Method</h1>
+    <form>
+      <input
+        type="tel"
+        placeholder="Phone number"
+        pattern="[0-9]{10}"
+        title="Enter a 10-digit phone number"
+        required
+      />
+      <p>(or)</p>
+      <div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/800px-QR_code_for_mobile_English_Wikipedia.svg.png" alt="scanner">
+      </div>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Method</title>
+  <link rel="shortcut icon" href="https://cdn.pixabay.com/photo/2021/03/19/13/40/online-6107598_1280.png" type="image/x-icon">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url("https://cdn.pixabay.com/photo/2021/03/19/13/40/online-6107598_1280.png");
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .payment-container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .row input {
+      flex: 1;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .or-divider {
+      text-align: center;
+      margin: 20px 0;
+      font-weight: bold;
+      color: #888;
+    }
+
+    hr {
+      border: none;
+      height: 1px;
+      background-color: #ccc;
+      margin: 0;
+    }
+
+    .alt-payments {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 15px;
+    }
+
+    .alt-payments a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      gap: 6px;
+      font-size: 14px;
+    }
+
+    .alt-payments img {
+      width: 24px;
+      height: 24px;
+    }
+
+    @media (max-width: 480px) {
+      .row {
+        flex-direction: column;
+      }
+
+      .alt-payments {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="payment-container">
+    <h1>Payment Method</h1>
+    <input type="text" placeholder="Cardholder Name" />
+    <input type="text" placeholder="Card Number" />
+    <div class="row">
+      <input type="text" placeholder="MM/YY" />
+      <input type="text" placeholder="CVV" />
+    </div>
+    <button>Submit</button>
+    
+    <div class="or-divider">(or)</div>
+    <hr>
+
+    <!-- Payment Options with Icons -->
+    <div class="alt-payments">
+      <a href="scanner.html" target="_blank"><img src="https://static.vecteezy.com/system/resources/previews/044/626/012/non_2x/white-google-pay-logotype-on-light-blue-background-logo-mobile-payment-system-electronic-wallet-contactless-nfc-for-android-operating-system-gpay-editorial-free-vector.jpg" alt="Google Pay" />Google Pay</a>
+      <a href="scanner.html" target="_blank"><img src="https://cdn.freelogovectors.net/wp-content/uploads/2023/11/phonepelogo-freelogovectors.net_.png" alt="PhonePe" />PhonePe</a>
+      <a href="scanner.html" target="_blank"><img src="https://play-lh.googleusercontent.com/KRQ7JB6faUWiSt-1SHfcMVOipDMjU5scSPhLttsc9Mc6c5nMiAEKZuIn0_slAz3o0Dc=w600-h300-pc0xffffff-pd" alt="Paytm" />Paytm</a>
+    </div>
+  </div>
+</body>
+</html>
