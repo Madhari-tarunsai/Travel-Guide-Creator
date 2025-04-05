@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaints</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color:#a42890; 
+        }
+
+        .div1 {
+            border: 3px solid black;
+            height: 350px;
+            width: 350px;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+            background-image: url("https://t3.ftcdn.net/jpg/05/20/68/54/360_F_520685437_FuWJXbq7SHOOMugB1grPu3oakwdB8FNW.jpg");
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .complaint-btn {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .complaint-btn:hover {
+            background-color: #0056b3;
+        }
+
+        img {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <img src="" alt="">
+        <a href="complain1.html"><button class="complaint-btn">Complaint</button></a>
+    </div>
+</body>
+</html>

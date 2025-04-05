@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Complaint Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color:darkgreen;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .form-container {
+        background-color: #fff;
+        border-radius: 20px;
+        padding: 30px;
+        width: 400px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      textarea,
+      input {
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-sizing: border-box;
+      }
+
+      .btn-group {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .back-btn {
+        background-color: #6c757d;
+        color: white;
+      }
+
+      .logout-btn {
+        background-color: #dc3545;
+        color: white;
+      }
+
+      .back-btn:hover {
+        background-color: #5a6268;
+      }
+
+      .logout-btn:hover {
+        background-color: #c82333;
+      }
+
+      .submit-btn {
+        background-color: #28a745;
+        color: white;
+        width: 100px;
+        margin-top: 10px;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+      }
+
+      .submit-btn:hover {
+        background-color: #218838;
+      }
+
+      #msg {
+        color: green;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Complaint Form</h2>
+
+      <!-- Add action and method to the form -->
+      <form action="https://api.web3forms.com/submit" method="POST" name="access_key">
+        <input type="hidden" name="access_key" value="d0dd2439-1320-41a7-9f53-d07cbf68e98a" />
+
+        <input type="text" id="name" name="name" placeholder="Your Name" required />
+        <input type="email" id="email" name="email" placeholder="Your Email" required />
+        <textarea id="complaint" name="complaint" rows="5" placeholder="Enter your complaint..." required></textarea>
+
+        <button type="submit" class="submit-btn" id="btn">Submit Complaint</button>
+
+        <div id="msg"></div>
+      </form>
+
+      <div class="btn-group" style="margin-top: 15px">
+        <button class="btn back-btn" onclick="goBack()">Back</button>
+        <button class="btn logout-btn" onclick="logout()">Logout</button>
+      </div>
+    </div>
+
+    <script>
+      // Go back to the previous page
+      function goBack() {
+        window.location.href = "complain.html";
+      }
+
+      // Log out the user
+      function logout() {
+        alert("Logout successfully");
+        window.location.href = "index.html"; // Redirect to home page
+      }
+
+      let button = document.getElementById("btn");
+
+      button.addEventListener("click", function (event) {
+        let name = document.getElementById("name").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let complaint = document.getElementById("complaint").value.trim();
+
+        // Validate if all fields are filled
+        if (name === "" || email === "" || complaint === "") {
+          alert("Please fill in all the fields.");
+          event.preventDefault();  // Prevent form submission if validation fails
+          return;
+        }
+
+        // Success message
+        document.getElementById("msg").innerText = "Complaint successfully done!";
+      });
+    </script>
+  </body>
+</html>

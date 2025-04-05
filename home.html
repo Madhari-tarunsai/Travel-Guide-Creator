@@ -24,7 +24,13 @@
         <a href="booking.html">Booking</a>
         <a href="#contact">Contact</a>
         <div>
-          <button>AdminLogin</button>
+          <a href="index.html">signin</a> /
+          <a href="register.html">sigup</a>
+        </div>
+        <div>
+          <a href="complain.html" target="_blank"
+            ><button id="btn">AdminLogin</button></a
+          >
         </div>
       </div>
     </nav>
@@ -359,13 +365,71 @@
     <script src="sai.js"></script>
     <!-- our gallary end -->
 
+    <!-- User terminals start-->
+    <!-- User terminals ends -->
+    <!-- reviews start -->
+    <div class="box-container" id="review">
+      <!-- Customer Feedback Container -->
+      <div class="customer-feedback">
+        <!-- Feedback Form Section -->
+        <div class="feedback-form">
+          <label for="customer-name">Enter your name:</label>
+          <input
+            type="text"
+            id="customer-name"
+            placeholder="Enter your name"
+          /><br /><br />
+
+          <label for="feedback-text">Feedback:</label>
+          <textarea
+            id="feedback-text"
+            placeholder="Write your feedback"
+          ></textarea
+          ><br /><br />
+
+          <label for="image-url">Image URL:</label>
+          <input
+            type="text"
+            id="image-url"
+            placeholder="Enter image URL (optional)"
+          /><br /><br />
+
+          <div class="rating">
+            <label>Rate: </label>
+            <select id="feedback-rating">
+              <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+              <option value="4">&#9733;&#9733;&#9733;&#9733;&#9734;</option>
+              <option value="3">&#9733;&#9733;&#9733;&#9734;&#9734;</option>
+              <option value="2">&#9733;&#9733;&#9734;&#9734;&#9734;</option>
+              <option value="1">&#9733;&#9734;&#9734;&#9734;&#9734;</option>
+            </select>
+          </div>
+
+          <button id="submit-review" style="background-color: green">
+            Submit Review
+          </button>
+        </div>
+
+        <!-- Reviews Section -->
+        <div class="feedback-container" id="feedback-container">
+          <!-- Reviews will be dynamically inserted here -->
+        </div>
+      </div>
+    </div>
+    <!-- review end -->
+
     <!-- contact us start -->
     <div class="contact-container" id="contact">
       <img
-        src="https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-8cb0-61f7-bd0c-5f5484ddcd6c/raw?se=2025-04-05T11%3A59%3A50Z&sp=r&sv=2024-08-04&sr=b&scid=759b0f52-23fd-5291-bdfb-a209a30fc000&skoid=2f36945c-3adc-4614-ac2b-eced8f672c58&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-05T08%3A15%3A28Z&ske=2025-04-06T08%3A15%3A28Z&sks=b&skv=2024-08-04&sig=4XyyT/WVC/uctZMsCaH2SDLBdccewJ1zeizjSwi6jfE%3D"
-        alt="contact image" style="border-radius: 20px; box-shadow: 0px 0px 1px 2px black;"
+        src="https://lockyourtrip.com/wp-content/uploads/2025/01/contact-us-1.jpg"
+        alt="contact image"
+        style="border-radius: 20px; box-shadow: 0px 0px 1px 2px black"
       />
-      <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+      <form
+        action="https://api.web3forms.com/submit"
+        method="POST"
+        class="contact-left"
+      >
         <div class="contact-left-title">
           <h2>Get in touch</h2>
           <hr />
@@ -398,7 +462,7 @@
         <button type="submit">submit</button>
       </form>
     </div>
-    
+
     <!-- contact us end -->
     <!-- footer start -->
     <div class="content3">
@@ -430,3 +494,4 @@
     <!-- footer end -->
   </body>
 </html>
+<script src="review.js"></script>

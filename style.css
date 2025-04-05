@@ -351,6 +351,163 @@ button {
   }
 }
 /* our gallary end */
+/* terminal start */
+
+/* terminal end */
+/* reviews */
+/* Outer Box Container */
+.box-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color:#45008a; /* Light gray background for the outer box */
+}
+
+/* Container for the entire content */
+.customer-feedback {
+  width: 100%;
+  max-width: 800px; /* Limit the width of the content */
+  background-color: #ffffff; /* White background for the form and review cards */
+  padding: 20px;
+  border-radius: 8px;
+  color: black;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow for better visual appeal */
+}
+
+/* Flexbox to center the content */
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+/* Style input fields, textarea, select elements, and button */
+.feedback-form input, 
+.feedback-form textarea, 
+.feedback-form select, 
+.feedback-form button {
+  margin-bottom: 15px;
+  padding: 10px;
+  width: 80%; /* Make the width responsive */
+  max-width: 400px; /* Max width to avoid stretching too much */
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style for labels */
+.feedback-form label {
+  margin-bottom: 5px;
+  font-size: 1.2em;
+  color: #333; /* Make label text dark */
+}
+
+/* Add some styles for the image */
+.feedback-form img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+/* Styling for reviews section (Card style) */
+.feedback-item {
+  background-color:#45008a; /* Light background for card */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px; /* Space inside the card */
+  margin-bottom: 15px; /* Space between cards */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for card effect */
+  display: flex;
+  font-size: x-large;
+  color:white;
+  flex-direction: column;
+  border: 1px solid #ddd; /* Border around the card */
+}
+
+/* Container for multiple feedback items */
+.feedback-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between each review card */
+}
+
+/* Flexbox container inside each feedback item */
+.feedback-info {
+  margin-bottom: 10px; /* Space between name and feedback text */
+  flex: 1;
+
+}
+
+/* Styling for images inside feedback */
+.feedback-image {
+  margin-left: 20px;
+}
+
+.feedback-image img {
+  max-width: 150px;
+  max-height: 150px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.feedback-image img:hover {
+  transform: scale(1.2); /* Zoom effect on hover */
+}
+
+.customer-name {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.feedback-text {
+  font-size: 1em;
+  color:white; /* Darker color for feedback text */
+  margin-top: 5px;
+}
+
+.feedback-rating {
+  margin-top: 10px;
+  font-size: 1.2em;
+  color: #ffcc00; /* Yellow stars for rating */
+}
+
+/* Styling for remove button */
+.remove-button {
+  align-self: flex-start; /* Position the button at the start of the card */
+  background-color: #ff4d4d;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px; /* Space between rating and button */
+}
+
+.remove-button:hover {
+  background-color: #ff0000; /* Change color on hover */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  .feedback-item {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto; /* Center reviews on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .feedback-item {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+
+/* review end */
+
 /* contact start */
 .contact-container {
   height: 100vh;
@@ -591,3 +748,5 @@ footer {
   }
 }
 /* footer end */
+
+
