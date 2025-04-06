@@ -13,11 +13,11 @@ Technology
 
 🎯 Project Objective:
 
- => To provide a centralized platform for planning trips.
- => To assist users in selecting destinations, accommodations, and activities.
- => To integrate location services for better navigation and trip visualization.
- => To allow saving and modifying travel plans.
-=>  To offer budget and time estimations for planned trips.
+ 1. To provide a centralized platform for planning trips.
+2.  To assist users in selecting destinations, accommodations, and activities.
+3. To integrate location services for better navigation and trip visualization.
+4. To allow saving and modifying travel plans.
+5. To offer budget and time estimations for planned trips.
 
 👨‍💻 Role: Frontend & Backend Developer
 
