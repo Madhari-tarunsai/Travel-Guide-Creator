@@ -120,7 +120,8 @@ The Tour_Planner Website is a responsive web application designed to help users 
 
 #Footer_page:-
 
-![image](https://github.com/user-attachments/assets/57ef20c9-7d4c-476f-864b-29860cb6d9f8)
+![Screenshot (207)](https://github.com/user-attachments/assets/9835cae6-e00c-4eb7-9b68-71c738af9c1c)
+
 
 
 
