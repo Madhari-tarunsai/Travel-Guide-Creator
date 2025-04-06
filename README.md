@@ -45,9 +45,12 @@ The Tour_Planner Website is a responsive web application designed to help users 
 🌐 Live Website :- https://madhari-tarunsai.github.io/Travel-Guide-Creator/
 
 #IMAGES
-#login_Page:-
-screenshort![Uploading Screenshot (188).png…]
-#Registration page:
+#login_Page
+
+![Uploading Screenshot (188).png…]()
+
+#Registration_page
+
+![Uploading Screenshot (189).png…]()
 
 
-)
