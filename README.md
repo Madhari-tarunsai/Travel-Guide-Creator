@@ -1,6 +1,5 @@
 # Travel-Guide-Creator
                                                           Tour_Planner Website
-Live Website :- https://madhari-tarunsai.github.io/Travel-Guide-Creator/
 
 📝 Introduction:
 The Tour_Planner Website is a responsive web application designed to help users plan, organize, and customize their travel experiences efficiently. It provides destination suggestions, itinerary planning, hotel recommendations, maps integration, and budget tracking—all in one platform. The goal is to simplify travel planning for both solo travelers and groups by offering an intuitive and user-friendly interface.
@@ -40,5 +39,7 @@ Technology
 2. Educational tool for learning web development and APIs.
 3. Travel agencies can adopt or extend it for their own booking platforms.
 4. Can be integrated with mobile apps in the future for more advanced use.
+
+Live Website :- https://madhari-tarunsai.github.io/Travel-Guide-Creator/
 
 #IMAGES
