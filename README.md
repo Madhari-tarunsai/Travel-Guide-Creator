@@ -12,6 +12,7 @@ Technology
 5. Git & GitHub	Version control and collaboration
 
 🎯 Project Objective:
+
  => To provide a centralized platform for planning trips.
  => To assist users in selecting destinations, accommodations, and activities.
  => To integrate location services for better navigation and trip visualization.
@@ -21,6 +22,7 @@ Technology
 👨‍💻 Role: Frontend & Backend Developer
 
 🌟 Unique Features:
+
 🗺️ Interactive Google Maps for real-time location tracking.
 📆 Custom Itinerary Generator that allows users to create day-wise travel schedules.
 💰 Budget Estimator that adjusts based on location, number of days, and travel type.
