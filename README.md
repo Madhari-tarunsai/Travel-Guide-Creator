@@ -13,7 +13,7 @@ Technology
 
 🎯 Project Objective:
 
- 1. To provide a centralized platform for planning trips.
+1. To provide a centralized platform for planning trips.
 2.  To assist users in selecting destinations, accommodations, and activities.
 3. To integrate location services for better navigation and trip visualization.
 4. To allow saving and modifying travel plans.
@@ -23,7 +23,20 @@ Technology
 
 🌟 Unique Features:
 
-🗺️ Interactive Google Maps for real-time location tracking.
-📆 Custom Itinerary Generator that allows users to create day-wise travel schedules.
-💰 Budget Estimator that adjusts based on location, number of days, and travel type.
-📱 Responsive Design to work seamlessly on both desktop and mobile devices.
+1. 🗺️ Interactive Google Maps for real-time location tracking.
+2. 📆 Custom Itinerary Generator that allows users to create day-wise travel schedules.
+3. 💰 Budget Estimator that adjusts based on location, number of days, and travel type.
+4. 📱 Responsive Design to work seamlessly on both desktop and mobile devices.
+
+📊 Tools Usage Percentages:
+1. HTML/CSS	25%
+2. JavaScript	20%
+3. Git & GitHub	5%
+
+🌍 Applications & Benefits:
+1. Personal travel planning and management.
+2. Educational tool for learning web development and APIs.
+3. Travel agencies can adopt or extend it for their own booking platforms.
+4. Can be integrated with mobile apps in the future for more advanced use.
+
+#IMAGES
