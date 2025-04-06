@@ -47,30 +47,37 @@ The Tour_Planner Website is a responsive web application designed to help users 
 🌐 Live Website :- https://madhari-tarunsai.github.io/Travel-Guide-Creator/
 
 #Login_Page:-
+
 ![Screenshot (188)](https://github.com/user-attachments/assets/837a2fb9-fdaf-4d82-9abd-f123cc7af5bc)
 
 
 #Registration_page:-
+
 ![Screenshot (189)](https://github.com/user-attachments/assets/6abfced1-3da4-4e92-914a-5a8bdd9ae611)
 
 
 #Home_page:-
+
 ![Screenshot (190)](https://github.com/user-attachments/assets/697a861a-fbf5-4514-8deb-126b59cf0129)
 
 
 #About_page:-
+
 ![Screenshot (191)](https://github.com/user-attachments/assets/d0047e19-39e9-4628-b19b-1f8c2bf9b072)
 
 
 #Services_Page:-
+
 ![Screenshot (192)](https://github.com/user-attachments/assets/b1339604-ebb7-4e0a-9906-c80f517cf4d6)
 
 
 #OurGallery_page:-
+
 ![Screenshot (193)](https://github.com/user-attachments/assets/15f974da-265d-47af-9600-01620a9768d6)
 
 
 #Vistingplaces_page:-
+
 ![Screenshot (197)](https://github.com/user-attachments/assets/2c527519-adae-4c08-bec7-40f2e8b6e886)
 
 
@@ -82,9 +89,11 @@ The Tour_Planner Website is a responsive web application designed to help users 
 
 
 #payment_page:-
+
 ![image](https://github.com/user-attachments/assets/c46b7757-d8a8-43b3-aeba-57fc2e7fe3ad)
 
-#Admin_page:
+#Admin_page:-
+
 ![Screenshot (200)](https://github.com/user-attachments/assets/355b7071-dcb7-41a0-ae81-c69be833f746)
 
 ![Screenshot (201)](https://github.com/user-attachments/assets/49e6957d-91f3-4e8a-a4ef-db8d76452bca)
@@ -96,12 +105,15 @@ The Tour_Planner Website is a responsive web application designed to help users 
 ![Screenshot (204)](https://github.com/user-attachments/assets/e3d3c07d-cf2a-4cd2-8e90-737e2b81040c)
 
 #Customerterminal_page:-
+
 ![Screenshot (194)](https://github.com/user-attachments/assets/1ac22ab0-13e4-4208-a2f0-f0c7d42086a7)
 
 #Reviews_page:-
+
 ![Screenshot (195)](https://github.com/user-attachments/assets/e414dc2a-e803-4c32-83b5-205bde061ed1)
 
 #Contact_page:-
+
 ![Screenshot (196)](https://github.com/user-attachments/assets/eb874675-08b8-4c0c-bcec-091980db3324)
 
 
