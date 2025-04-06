@@ -1,40 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Packers</title>
-    <link rel="stylesheet" href="packers.css">
-    <link rel="shortcut icon" href="https://startupbizglobal.com/wp-content/uploads/tour-operator-business-plan.jpg" type="image/x-icon">
-</head>
-<style>
-    ::-webkit-scrollbar{
-        display: none;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Packers</title>
+  <link rel="stylesheet" href="packers.css" />
+  <link rel="shortcut icon" href="https://startupbizglobal.com/wp-content/uploads/tour-operator-business-plan.jpg" type="image/x-icon">
+  <style>
+    ::-webkit-scrollbar {
+      display: none;
     }
-</style>
+  </style>
+</head>
 <body>
-<!-- nav bar start -->
-<nav>
-    <div class="navbar ">
-        <h1 class="logo">Travel.</h1>
-        <div class="search-container">
-            <input type="text" placeholder="search places here...." id="search-input">
-            <button id="search-button">search</button>
-        </div>
+  <!-- Navbar Start -->
+  <nav>
+    <div class="navbar">
+      <h1 class="logo">Travel.</h1>
+      <div class="search-container">
+        <input type="text" placeholder="search places here...." id="search-input" />
+        <button id="search-button">search</button>
+      </div>
     </div>
-</nav>
+  </nav>
+  <!-- Navbar End -->
 
- <!-- nav bar end -->
-  <!-- body start -->
+  <!-- Body Start -->
   <h1 style="text-align: center; padding: 20px; text-decoration: underline;">Places of interest</h1>
-  <a href="home.html"><svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <g opacity="0.4"> <path d="M15.5 12H9.5" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M11.5 9L8.5 12L11.5 15" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg></a>
+  <a href="home.html">
+    <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <g opacity="0.4">
+        <path d="M15.5 12H9.5" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M11.5 9L8.5 12L11.5 15" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </svg>
+  </a>
 
-  <div id="places-container"
-       style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px;">
-  </div>
-   <!-- body ends -->
-<script src="script.js"></script>
+  <div id="places-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px;"></div>
+  <!-- Body End -->
 
-    
+  <script>
+    const API_URL = "https://67f0dd25c733555e24ab6ba1.mockapi.io/places";
+    let placesData = [];
+
+    async function fetchPlaces() {
+      try {
+        document.body.style.backgroundColor = "#7FFFD4";
+        const response = await fetch(API_URL);
+        placesData = await response.json();
+        renderPlaces(placesData);
+      } catch (error) {
+        console.error("Error fetching places:", error);
+      }
+    }
+
+    function renderPlaces(data) {
+      const container = document.getElementById("places-container");
+      container.innerHTML = "";
+
+      if (data.length === 0) {
+        const message = document.createElement("h2");
+        message.textContent = "Place not found";
+        message.style.color = "red";
+        message.style.textAlign = "center";
+        container.appendChild(message);
+        return;
+      }
+
+      data.forEach(place => {
+        const card = document.createElement("div");
+        card.style.backgroundColor = "#20B2AA";
+        card.style.borderRadius = "8px";
+        card.style.boxShadow = "0 2px 8px rgba(0,0,0,0.1)";
+        card.style.overflow = "hidden";
+        card.style.width = "300px";
+        card.style.padding = "15px";
+        card.style.boxSizing = "border-box";
+        card.style.display = "flex";
+        card.style.flexDirection = "column";
+        card.style.alignItems = "center";
+        card.style.margin = "10px";
+        card.style.transition = "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out";
+
+        card.addEventListener('mouseenter', () => {
+          card.style.transform = 'scale(1.05)';
+          card.style.boxShadow = "0px 3px 2px 3px black";
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'scale(1)';
+          card.style.boxShadow = "2px 4px 2px 1px black";
+        });
+
+        const image = document.createElement("img");
+        image.src = place.image;
+        image.alt = place.name;
+        image.style.width = "100%";
+        image.style.height = "200px";
+        image.style.objectFit = "cover";
+        image.style.borderRadius = "6px";
+        image.style.transition = "transform 0.3s ease-in-out";
+
+        image.addEventListener('mouseenter', () => {
+          image.style.transform = 'scale(1.1)';
+        });
+        image.addEventListener('mouseleave', () => {
+          image.style.transform = 'scale(1)';
+        });
+
+        const title = document.createElement("h1");
+        title.textContent = place.title || place.name;
+        title.style.margin = "10px 0 5px 0";
+        title.style.fontSize = "18px";
+        title.style.textAlign = "center";
+
+        const desc = document.createElement("p");
+        desc.textContent = place.description;
+        desc.style.textAlign = "center";
+        desc.style.fontSize = "14px";
+        desc.style.color = "#333";
+
+        const rating = document.createElement("p");
+        rating.textContent = `Rating: ${place.rating || "4.5"} ⭐`;
+        rating.style.margin = "5px 0";
+        rating.style.fontWeight = "bold";
+        rating.style.color = "#444";
+
+        const cost = document.createElement("p");
+        cost.textContent = `Cost: ₹${place.cost || "1000"}`;
+        cost.style.margin = "0";
+        cost.style.color = "#555";
+
+        const buttonContainer = document.createElement("div");
+        buttonContainer.style.display = "flex";
+        buttonContainer.style.gap = "10px";
+        buttonContainer.style.marginTop = "10px";
+
+        const bookNowBtn = document.createElement("button");
+        bookNowBtn.textContent = "Book Now";
+        bookNowBtn.style.padding = "10px 15px";
+        bookNowBtn.style.border = "none";
+        bookNowBtn.style.backgroundColor = "#007bff";
+        bookNowBtn.style.color = "white";
+        bookNowBtn.style.borderRadius = "4px";
+        bookNowBtn.style.cursor = "pointer";
+        bookNowBtn.onclick = () => {
+          window.location.href = "booking.html";
+        };
+
+        buttonContainer.appendChild(bookNowBtn);
+
+        card.appendChild(image);
+        card.appendChild(title);
+        card.appendChild(desc);
+        card.appendChild(rating);
+        card.appendChild(cost);
+        card.appendChild(buttonContainer);
+
+        container.appendChild(card);
+      });
+    }
+
+    document.getElementById("search-button").addEventListener("click", () => {
+      const query = document.getElementById("search-input").value.toLowerCase().trim();
+      const filteredPlaces = placesData.filter(place =>
+        (place.name || place.title || "").toLowerCase().includes(query)
+      );
+      renderPlaces(filteredPlaces);
+    });
+
+    fetchPlaces();
+  </script>
 </body>
 </html>
