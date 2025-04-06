@@ -39,7 +39,9 @@ Technology
 2. Educational tool for learning web development and APIs.
 3. Travel agencies can adopt or extend it for their own booking platforms.
 4. Can be integrated with mobile apps in the future for more advanced use.
+5. Available signin page and signup page.
+6. Having complain box in admin page.
 
-Live Website :- https://madhari-tarunsai.github.io/Travel-Guide-Creator/
+🌐 Live Website :- https://madhari-tarunsai.github.io/Travel-Guide-Creator/
 
 #IMAGES
