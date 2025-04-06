@@ -1,5 +1,5 @@
 # Travel-Guide-Creator
-                                                          Tour_Planner Website
+                                                          
 
 📝 Introduction:
 The Tour_Planner Website is a responsive web application designed to help users plan, organize, and customize their travel experiences efficiently. It provides destination suggestions, itinerary planning, hotel recommendations, maps integration, and budget tracking—all in one platform. The goal is to simplify travel planning for both solo travelers and groups by offering an intuitive and user-friendly interface.
@@ -117,6 +117,11 @@ The Tour_Planner Website is a responsive web application designed to help users 
 ![Screenshot (196)](https://github.com/user-attachments/assets/eb874675-08b8-4c0c-bcec-091980db3324)
 
 ![Screenshot (206)](https://github.com/user-attachments/assets/cbeff897-9d1f-43c7-9ba9-6b4bcb9278a8)
+
+#Footer_page:-
+
+![image](https://github.com/user-attachments/assets/57ef20c9-7d4c-476f-864b-29860cb6d9f8)
+
 
 
 
