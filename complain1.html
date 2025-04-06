@@ -7,7 +7,11 @@
     <style>
       body {
         font-family: Arial, sans-serif;
-        background-color:darkgreen;
+        background-image: url("https://as2.ftcdn.net/v2/jpg/07/59/35/99/1000_F_759359988_OX0evS6Fxcn0Z0yQs4sYl6F5YoVyNEsu.jpg");
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
         height: 100vh;
         margin: 0;
         display: flex;
@@ -99,14 +103,42 @@
       <h2>Complaint Form</h2>
 
       <!-- Add action and method to the form -->
-      <form action="https://api.web3forms.com/submit" method="POST" name="access_key">
-        <input type="hidden" name="access_key" value="d0dd2439-1320-41a7-9f53-d07cbf68e98a" />
+      <form
+        action="https://api.web3forms.com/submit"
+        method="POST"
+        name="access_key"
+      >
+        <input
+          type="hidden"
+          name="access_key"
+          value="d0dd2439-1320-41a7-9f53-d07cbf68e98a"
+        />
 
-        <input type="text" id="name" name="name" placeholder="Your Name" required />
-        <input type="email" id="email" name="email" placeholder="Your Email" required />
-        <textarea id="complaint" name="complaint" rows="5" placeholder="Enter your complaint..." required></textarea>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your Name"
+          required
+        />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Your Email"
+          required
+        />
+        <textarea
+          id="complaint"
+          name="complaint"
+          rows="5"
+          placeholder="Enter your complaint..."
+          required
+        ></textarea>
 
-        <button type="submit" class="submit-btn" id="btn">Submit Complaint</button>
+        <button type="submit" class="submit-btn" id="btn">
+          Submit Complaint
+        </button>
 
         <div id="msg"></div>
       </form>
@@ -139,12 +171,13 @@
         // Validate if all fields are filled
         if (name === "" || email === "" || complaint === "") {
           alert("Please fill in all the fields.");
-          event.preventDefault();  // Prevent form submission if validation fails
+          event.preventDefault(); // Prevent form submission if validation fails
           return;
         }
 
         // Success message
-        document.getElementById("msg").innerText = "Complaint successfully done!";
+        document.getElementById("msg").innerText =
+          "Complaint successfully done!";
       });
     </script>
   </body>

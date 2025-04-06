@@ -366,6 +366,99 @@
     <!-- our gallary end -->
 
     <!-- User terminals start-->
+    <div class="slider-container" id="our">
+      <h1 style="text-align: center;">Customer Terminals</h1>
+      <div class="slider" id="slider">
+          <div class="card">
+              <div class="circle-img">
+                  <img src="https://cdn.psychologytoday.com/sites/default/files/styles/article-inline-half/public/field_blog_entry_images/2017-09/shutterstock_533152165.jpg?itok=7rKZEKFt" alt="...">
+              </div>
+              <div class="card-body">
+                  <h5 class="card-title">Priyanka choppa</h5>
+                  <p class="card-text"><q>From start to finish, the tour was fantastic. The hotels were comfortable, and the guides made sure we had all the information we needed. A trip to remember!.</q></p>
+              </div>
+          </div>
+          <div class="card">
+              <div class="circle-img">
+                  <img src="https://www.shutterstock.com/image-photo/handsome-unshaven-young-darkskinned-male-260nw-640011838.jpg" alt="...">
+              </div>
+              <div class="card-body">
+                  <h5 class="card-title">Ajay Kumar</h5>
+                  <p class="card-text"><q>The locations were gorgeous, and every detail was taken care of. The tour guide was friendly and made each stop interesting. Truly a dream trip!</q></p>
+              </div>
+          </div>
+          <div class="card">
+              <div class="circle-img">
+                  <img src="https://static.toiimg.com/thumb/msid-69707516,width-400,resizemode-4/69707516.jpg" alt="...">
+              </div>
+              <div class="card-body">
+                  <h5 class="card-title">Mr.john</h5>
+                  <p class="card-text"><q>I loved how balanced the trip was. There was enough time to explore each location without feeling rushed. The guides were super knowledgeable, too!</q></p>
+              </div>
+          </div>
+          <div class="card">
+              <div class="circle-img">
+                  <img src="https://images.unsplash.com/photo-1597204081767-4c14a6b7cbec?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2luZ2xlJTIwcGVyc29ufGVufDB8fDB8fHww" alt="...">
+              </div>
+              <div class="card-body">
+                  <h5 class="card-title">Shanmuk yadav</h5>
+                  <p class="card-text"><q>The best part was how everything was organized. No need to worry about logistics—just enjoy the journey. Great trip for those looking for stress-free travel!</q></p>
+              </div>
+          </div>
+          <div class="card">
+              <div class="circle-img">
+                  <img src="https://t4.ftcdn.net/jpg/06/38/00/15/360_F_638001548_eeML0ox9NtgAFAgGhirY5isUYw5Ci7tL.jpg" alt="...">
+              </div>
+              <div class="card-body">
+                  <h5 class="card-title">Ms.Jessica</h5>
+                  <p class="card-text"><q>The landscapes were breathtaking, and the experiences were unique. From mountain views to historical ruins, every moment felt magical.</q></p>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="slider-controls">
+      <button id="prev-btn">&lt;</button>
+      <button id="next-btn">&gt;</button>
+  </div>
+  <script>
+    const slider = document.querySelector('.slider');
+    const sliderItems = document.querySelectorAll('.card');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    let slideIndex = 0;
+
+    function getCardWidth() {
+        return sliderItems[0].offsetWidth + 20; // card width + margin
+    }
+
+    function getCardsPerView() {
+        return Math.floor(document.querySelector('.slider-container').offsetWidth / getCardWidth());
+    }
+
+    function updateSliderPosition() {
+        const slideWidth = getCardWidth();
+        slider.style.transform = `translateX(${-slideIndex * slideWidth}px)`;
+    }
+
+    prevBtn.addEventListener('click', () => {
+        slideIndex--;
+        if (slideIndex < 0) {
+            slideIndex = sliderItems.length - getCardsPerView();
+        }
+        updateSliderPosition();
+    });
+
+    nextBtn.addEventListener('click', () => {
+        slideIndex++;
+        if (slideIndex > sliderItems.length - getCardsPerView()) {
+            slideIndex = 0;
+        }
+        updateSliderPosition();
+    });
+
+    window.addEventListener('resize', updateSliderPosition);
+</script>
     <!-- User terminals ends -->
     <!-- reviews start -->
     <div class="box-container" id="review">
@@ -412,7 +505,6 @@
 
         <!-- Reviews Section -->
         <div class="feedback-container" id="feedback-container">
-          <!-- Reviews will be dynamically inserted here -->
         </div>
       </div>
     </div>
@@ -465,25 +557,27 @@
 
     <!-- contact us end -->
     <!-- footer start -->
-    <div class="content3">
-      <!-- Main Content -->
-    </div>
+    <div class="content3"></div>
 
     <footer>
       <div class="social-icons">
-        <a href="#" title="facebook">📘</a>
-        <a href="#" title="Instagram">📷</a>
-        <a href="#" title="twitter">🐦</a>
-        <a href="#" title="google">🔵</a>
-        <a href="#" title="YouTube">▶️</a>
+        <a href="https://www.facebook.com/" title="facebook">📘</a>
+        <a
+          href="https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fstypje%2F&is_from_rle"
+          title="Instagram"
+          >📷</a
+        >
+        <a href="https://x.com/i/flow/login" title="twitter">🐦</a>
+        <a href="https://www.google.com/?authuser=0" title="google">🔵</a>
+        <a href="https://www.youtube.com/account" title="YouTube">▶️</a>
       </div>
 
       <div class="footer-links">
         <a href="#home">Home</a>
         <a href="#about">About</a>
-        <a href="#">Our Team</a>
+        <a href="#our">Our Team</a>
         <a href="#contact">Contact Us</a>
-        <a href="#">Reviews</a>
+        <a href="#review">Reviews</a>
       </div>
 
       <div class="copyright">
