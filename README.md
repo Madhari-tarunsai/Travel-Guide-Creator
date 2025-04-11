@@ -44,7 +44,7 @@ The Tour_Planner Website is a responsive web application designed to help users 
 5. Available signin page and signup page.
 
 
-🌐 Live Website :- https://madhari-tarunsai.github.io/Travel-Guide-Creator/
+🌐 Live Website :-https://madhari-tarunsai.github.io/Travel-Guide-Creator/
 
 #Login_Page:-
 
@@ -83,6 +83,10 @@ The Tour_Planner Website is a responsive web application designed to help users 
 
 ![Screenshot (198)](https://github.com/user-attachments/assets/fd377f49-d6cf-42aa-a4c6-c508b6d5dc78)
 
+![Screenshot (208)](https://github.com/user-attachments/assets/8e21801d-0d2f-4200-8abf-81bb2aa7986a)
+
+
+
 
 #Booking_page:-
 ![Screenshot (199)](https://github.com/user-attachments/assets/1e95f0ad-200f-4a39-922d-77271c26bd7d)
@@ -95,8 +99,6 @@ The Tour_Planner Website is a responsive web application designed to help users 
 #Admin_page:-
 
 ![Screenshot (200)](https://github.com/user-attachments/assets/355b7071-dcb7-41a0-ae81-c69be833f746)
-
-![Screenshot (201)](https://github.com/user-attachments/assets/49e6957d-91f3-4e8a-a4ef-db8d76452bca)
 
 ![Screenshot (202)](https://github.com/user-attachments/assets/70834526-63a6-40c2-b942-3480dd80d047)
 
