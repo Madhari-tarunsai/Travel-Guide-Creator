@@ -7,23 +7,365 @@
   <link rel="stylesheet" href="packers.css" />
   <link rel="shortcut icon" href="https://startupbizglobal.com/wp-content/uploads/tour-operator-business-plan.jpg" type="image/x-icon">
   <style>
+    /* Navbar Styling */
+    /* Reset and Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* Navbar Base */
+.navbar {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px 20px;
+  background-color: #1e1e1e;
+  color: white;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Search Bar Styling */
+.search-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.search-container input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.search-container button {
+  padding: 10px 16px;
+  background-color: #00aaff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Right Section: Favorites + Toggle */
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.favorites {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: white;
+}
+
+/* Mode Toggle Switch */
+.mode-toggle {
+  position: relative;
+  width: 40px;
+  height: 20px;
+}
+
+.mode-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: #ccc;
+  border-radius: 20px;
+  transition: 0.4s;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* 🔁 Media Queries for All Devices */
+
+/* 📱 Mobile Phones (up to 480px) */
+@media (max-width: 480px) {
+  .navbar {
+    align-items: center;
+  }
+
+  .search-container {
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .search-container input,
+  .search-container button {
+    width: 100%;
+  }
+
+  .right-section {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* 📱+ Tablets Portrait (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-container {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .search-container input {
+    width: 100%;
+  }
+
+  .right-section {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
+/* 💻 Tablets Landscape & Small Desktops (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .search-container {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .search-container input {
+    width: 100%;
+  }
+}
+
+/* 🖥️ Large Desktops (1025px and up) */
+@media (min-width: 1025px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .search-container {
+    max-width: 400px;
+  }
+
+  .search-container input {
+    width: 100%;
+  }
+}
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      padding: 15px 30px;
+      color: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      background-color: white;
+      border-radius: 50px;
+      padding: 5px 15px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-container input {
+      border: none;
+      outline: none;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 30px;
+      width: 250px;
+      margin-right: 10px;
+    }
+
+    .search-container button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .search-container button:hover {
+      background-color: #0056b3;
+    }
+
+    .favorites {
+      display: flex;
+      align-items: center;
+      background-color: #f39c12;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .favorites span {
+      margin-left: 10px;
+      font-weight: bold;
+    }
+
+    /* Hide scrollbar */
     ::-webkit-scrollbar {
       display: none;
+    }
+
+    /* Dark/Light Mode Styles */
+    body.light-mode {
+      background-color:lightgreen;
+      color: #000;
+    }
+
+    body.dark-mode {
+      background-color:salmon;
+      color: #ffffff;
+    }
+
+    .navbar.dark-mode {
+      background-color: #1e1e1e;
+      color: white;
+    }
+
+    .mode-toggle {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+      margin-left: 20px;
+    }
+
+    .mode-toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0;
+      right: 0; bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #2196F3;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
     }
   </style>
 </head>
 <body>
   <!-- Navbar Start -->
-  <nav>
-    <div class="navbar">
-      <h1 class="logo">Travel.</h1>
-      <div class="search-container">
-        <input type="text" placeholder="search places here...." id="search-input" />
-        <button id="search-button">search</button>
-      </div>
+<nav>
+  <div class="navbar">
+    <h1 class="logo">Travel.</h1>
+
+    <div class="search-container">
+      <input type="text" placeholder="Search places here..." id="search-input" />
+      <button id="search-button">Search</button>
     </div>
-  </nav>
-  <!-- Navbar End -->
+
+    <div class="right-section">
+      <a href="addcard.html" class="favorites" id="favorites">
+        <svg width="24" height="24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 
+                   2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 
+                   4.5 2.09C13.09 3.81 14.76 3 16.5 3 
+                   19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 
+                   11.54L12 21.35z"/>
+        </svg>
+        <span id="favorites-count">0</span>
+      </a>
+
+      <!-- Dark/Light Mode Toggle -->
+      <label class="mode-toggle">
+        <input type="checkbox" id="mode-toggle-checkbox">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+</nav>
+<!-- Navbar End -->
+
 
   <!-- Body Start -->
   <h1 style="text-align: center; padding: 20px; text-decoration: underline;">Places of interest</h1>
@@ -46,7 +388,6 @@
 
     async function fetchPlaces() {
       try {
-        document.body.style.backgroundColor = "#7FFFD4";
         const response = await fetch(API_URL);
         placesData = await response.json();
         renderPlaces(placesData);
@@ -148,7 +489,18 @@
           window.location.href = "booking.html";
         };
 
+        const addToFavoritesBtn = document.createElement("button");
+        addToFavoritesBtn.textContent = "Add to Favorites";
+        addToFavoritesBtn.style.padding = "10px 15px";
+        addToFavoritesBtn.style.border = "none";
+        addToFavoritesBtn.style.backgroundColor = "#e74c3c";
+        addToFavoritesBtn.style.color = "white";
+        addToFavoritesBtn.style.borderRadius = "4px";
+        addToFavoritesBtn.style.cursor = "pointer";
+        addToFavoritesBtn.onclick = () => addToFavorites(place);
+
         buttonContainer.appendChild(bookNowBtn);
+        buttonContainer.appendChild(addToFavoritesBtn);
 
         card.appendChild(image);
         card.appendChild(title);
@@ -161,6 +513,19 @@
       });
     }
 
+    function addToFavorites(place) {
+      let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+      favorites.push(place);
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+      updateFavoritesCount();
+    }
+
+    function updateFavoritesCount() {
+      const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+      const favoritesCount = document.getElementById("favorites-count");
+      favoritesCount.textContent = favorites.length;
+    }
+
     document.getElementById("search-button").addEventListener("click", () => {
       const query = document.getElementById("search-input").value.toLowerCase().trim();
       const filteredPlaces = placesData.filter(place =>
@@ -169,7 +534,33 @@
       renderPlaces(filteredPlaces);
     });
 
+    // Dark/Light Mode Functionality
+    const toggleCheckbox = document.getElementById("mode-toggle-checkbox");
+
+    const currentMode = localStorage.getItem("mode") || "light";
+    document.body.classList.add(currentMode + "-mode");
+    if (currentMode === "dark") toggleCheckbox.checked = true;
+    toggleNavbarMode(currentMode);
+
+    toggleCheckbox.addEventListener("change", () => {
+      const mode = toggleCheckbox.checked ? "dark" : "light";
+      document.body.classList.remove("light-mode", "dark-mode");
+      document.body.classList.add(mode + "-mode");
+      localStorage.setItem("mode", mode);
+      toggleNavbarMode(mode);
+    });
+
+    function toggleNavbarMode(mode) {
+      const navbar = document.querySelector(".navbar");
+      if (mode === "dark") {
+        navbar.classList.add("dark-mode");
+      } else {
+        navbar.classList.remove("dark-mode");
+      }
+    }
+
     fetchPlaces();
+    updateFavoritesCount();  // Initialize favorites count
   </script>
 </body>
 </html>
