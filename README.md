@@ -78,14 +78,16 @@ The Tour_Planner Website is a responsive web application designed to help users 
 
 #Vistingplaces_page:-
 
-![Screenshot (197)](https://github.com/user-attachments/assets/2c527519-adae-4c08-bec7-40f2e8b6e886)
+![Screenshot (209)](https://github.com/user-attachments/assets/589c71ec-7615-440a-80ce-893b201d4954)
 
+![Screenshot (210)](https://github.com/user-attachments/assets/57ce41d7-faf3-4f71-875c-d80e3bab6be5)
 
-![Screenshot (198)](https://github.com/user-attachments/assets/fd377f49-d6cf-42aa-a4c6-c508b6d5dc78)
+#Theme Change
+
+![Screenshot (211)](https://github.com/user-attachments/assets/2b9b5ee9-40d1-40f4-80af-1a25caa56e73)
+
 
 ![Screenshot (208)](https://github.com/user-attachments/assets/8e21801d-0d2f-4200-8abf-81bb2aa7986a)
-
-
 
 
 #Booking_page:-
