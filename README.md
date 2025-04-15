@@ -42,6 +42,8 @@ The Tour_Planner Website is a responsive web application designed to help users 
 3. Travel agencies can adopt or extend it for their own booking platforms.
 4. Can be integrated with mobile apps in the future for more advanced use.
 5. Available signin page and signup page.
+6. Available Add_To card.
+7. Change the themes mode
 
 
 🌐 Live Website :-https://madhari-tarunsai.github.io/Travel-Guide-Creator/
