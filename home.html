@@ -14,7 +14,10 @@
   <body>
     <!-------------------------------------------navbar------------------------------------------------------------------>
     <nav class="nav">
-      <h1>TripSphere</h1>
+      <div class="logo-container">
+        <img src="https://c8.alamy.com/comp/2BKGNR0/travel-logo-design-concept-template-illustration-of-holidays-vector-isolated-on-white-background-2BKGNR0.jpg" alt="TripSphere Logo" class="logo">
+        <h1>TripSphere</h1>
+      </div>
       <button class="toggle" onclick="toggleMenu()">☰</button>
       <div class="menu" id="menu">
         <a href="#home">Home</a>
@@ -28,17 +31,19 @@
           <a href="register.html">sigup</a>
         </div>
         <div>
-          <a href="complain.html" target="_blank"
-            ><button id="btn">AdminLogin</button></a
-          >
+          <a href="complain.html" target="_blank">
+            <button id="btn">AdminLogin</button>
+          </a>
         </div>
       </div>
     </nav>
+    
     <script>
       function toggleMenu() {
         document.getElementById("menu").classList.toggle("active");
       }
     </script>
+    
     <!------------------------------------------------------------------------------------------------------------->
     <!-- body section -->
     <div class="container" id="home">

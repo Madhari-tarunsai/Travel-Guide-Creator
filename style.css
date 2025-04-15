@@ -6,87 +6,130 @@
 body {
   font-family: Arial, sans-serif;
 }
+/* Base Navbar Styles */
 .nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 15px;
-  background-color: #333;
+  justify-content: space-between;
+  background: #56B1F7;
+  padding: 10px 20px;
   color: white;
+  transition: background 0.3s ease; /* Transition for background color change */
   position: sticky;
-  top: 0;
+  top:0;
   z-index: 1000;
 }
-.nav h1 {
-  margin-left: 0px;
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.3s ease; /* Logo scaling on hover */
 }
+
+.logo {
+  height: 40px;
+  width: auto;
+  transition: transform 0.3s ease; /* Smooth scaling for logo */
+}
+
+/* Logo animation */
+.logo-container:hover .logo {
+  transform: scale(1.1);
+}
+
+/* Menu Toggle Button */
+.toggle {
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.toggle:hover {
+  transform: rotate(90deg); /* Rotate toggle on hover */
+}
+
+/* Menu Styles */
 .menu {
   display: flex;
-  gap: 40px;
-  justify-content: center;
-  flex-grow: 1;
+  gap: 20px;
   align-items: center;
+  display: none; /* Initially hidden */
+  transition: transform 0.3s ease-out;
 }
+
+.menu.active {
+  display: flex; /* Show the menu when active */
+  transform: translateX(0);
+}
+
+/* Menu Links */
 .menu a {
   color: white;
   text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 1rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
+
+/* Hover Effect for Menu Links */
 .menu a:hover {
-  text-decoration: underline;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(5px);
 }
-.toggle {
-  display: none;
-  font-size: 24px;
-  background: none;
+
+/* Admin Login Button */
+#btn {
+  background-color: #ff4500;
   border: none;
+  padding: 10px 15px;
   color: white;
   cursor: pointer;
-  margin-right: 20px;
-}
-@media (max-width: 768px) {
-  .menu {
-    display: none;
-    flex-direction: column;
-    background-color: #444;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    padding: 10px;
-    border-radius: 5px;
-  }
-  .menu.active {
-    display: flex;
-  }
-  .toggle {
-    display: block;
-  }
-}
-button {
-  padding: 5px 10px;
-  font-size: large;
+  font-size: 1rem;
   border-radius: 5px;
-  background-color: darkblue;
-  color: aliceblue;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
-.menu div {
-  display: flex;
-  gap: 20px;
-  margin-left: 10px;
+
+#btn:hover {
+  background-color: #ff6347;
+  transform: translateY(-3px);
 }
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .menu {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .logo-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
 /* body start */
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: url("https://im.whatshot.in/img/2020/Aug/istock-857389362-1-1597736664.jpg?wp=1");
+  background-image: url("https://images.pexels.com/photos/1687845/pexels-photo-1687845.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -100,13 +143,30 @@ button {
   font-size: 20px;
   border-radius: 15px;
   box-shadow: 3px 3px 9px 3px black;
+
+  /* Animation */
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeSlideIn 1.5s ease-out forwards;
 }
+
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .box h1 {
   font-size: 30px;
   margin-bottom: 10px;
   color: white;
   text-shadow: 4px 3px 5px black;
   margin-top: -10px;
+
+  /* Animation */
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out 0.5s forwards;
 }
 
 .box p {
@@ -114,6 +174,10 @@ button {
   margin-bottom: 15px;
   color: white;
   text-shadow: 4px 3px 5px black;
+
+  /* Animation */
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out 1s forwards;
 }
 
 .box a {
@@ -124,11 +188,22 @@ button {
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
+
+  /* Animation */
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out 1.5s forwards;
 }
 
 .box a:hover {
   background-color: darkblue;
 }
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
 
 @media (max-width: 1024px) {
   .box {
@@ -223,7 +298,19 @@ button {
   gap: 35px;
   padding: 40px;
   margin: auto;
-  background-color: skyblue;
+  background-color: #FFD89C ;
+
+  /* Animation Container */
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeSlideIn 1.5s ease-out forwards;
+}
+
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .img img {
@@ -233,37 +320,72 @@ button {
   border-radius: 10px;
   box-shadow: 3px 3px 9px 3px black;
   transition: transform 0.3s ease-in-out;
+
+  /* Image animation */
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideInLeft 1.5s ease-out 0.5s forwards;
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .text {
   flex: 1;
   font-size: 18px;
   color: #333;
+
+  /* Text animation */
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideInRight 1.5s ease-out 0.8s forwards;
 }
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .img img:hover {
   transform: scale(1.1);
+}
+
+.about .btn {
+  display: flex;
+  justify-content: center;
+}
+
+.about .btn button {
+  background-color: green;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.about .btn button:hover {
+  background-color: darkgreen;
 }
 
 @media (max-width: 768px) {
   .about {
     flex-direction: column;
     text-align: center;
+    gap: 20px;
   }
 
   .img img {
     max-width: 100%;
   }
-
-  .about {
-    gap: 20px;
-  }
-}
-.about .btn {
-  display: flex;
-  justify-content: center;
-}
-.about .btn button {
-  background-color: green;
 }
 
 /* about end */
@@ -274,26 +396,70 @@ button {
   gap: 20px;
   justify-content: center;
   padding: 150px;
-  background-color: #45008a;
+  background-color:#A8D6F1;
 }
 
 .service > div {
   flex: 1 1 calc(25% - 20px);
-  background: #45008a;
+  background:	#5A7BA2;
   padding: 20px;
   border-radius: 10px;
   border: 2px solid black;
   text-align: center;
-  color: white;
+  color:black;
   box-shadow: 2px 2px 10px 4px black;
   transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
   box-sizing: border-box;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
 }
+
+/* Staggered animation delays */
+.service > div:nth-child(1) { animation-delay: 0.2s; }
+.service > div:nth-child(2) { animation-delay: 0.4s; }
+.service > div:nth-child(3) { animation-delay: 0.6s; }
+.service > div:nth-child(4) { animation-delay: 0.8s; }
 
 .service > div:hover {
   transform: scale(1.08);
-  box-shadow: 4px 4px 10px 4px black;
-  cursor: pointer;
+  box-shadow: 0 0 20px 6px rgba(255, 255, 255, 0.4);
+}
+
+.service svg {
+  margin-bottom: 15px;
+  fill: white;
+}
+
+.service h1 {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.service p {
+  font-size: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .service > div {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 600px) {
+  .service > div {
+    flex: 1 1 100%;
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 1024px) {
@@ -450,7 +616,7 @@ button {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background-color:#45008a; /* Light gray background for the outer box */
+  background-color:#92A5B3; /* Light gray background for the outer box */
 }
 
 /* Container for the entire content */
