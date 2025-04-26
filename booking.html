@@ -1,442 +1,522 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Travel Booking Page</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: "Segoe UI", sans-serif;
-        }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", sans-serif;
+      }
 
-        body {
-            background-image: url("https://bsmedia.business-standard.com/_media/bs/img/article/2024-09/06/full/1725606424-9293.jpg");
-            background-attachment: fixed;
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            min-height: 100vh;
-            padding: 30px 20px;
-        }
+      body {
+        background-image: url("https://bsmedia.business-standard.com/_media/bs/img/article/2024-09/06/full/1725606424-9293.jpg");
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 100vh;
+        padding: 90px 20px;
+        font-size: 1rem;
+        color: white;
+      }
 
+      .booking-container {
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+        max-width: 700px;
+        width: 100%;
+        animation: fadeIn 1s ease-in;
+        transition: transform 0.3s ease;
+        backdrop-filter: blur(10px);
+        position: relative;
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 2rem;
+      }
+
+      form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .full-width {
+        grid-column: 1 / -1;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 500;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        font-size: 1rem;
+        height: 45px;
+        background: #f9f9f9;
+      }
+
+      #booked-toggle {
+        display: none;
+      }
+
+      .form-actions {
+        grid-column: 1 / -1;
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end; /* Align buttons to the right */
+      }
+
+      .book-now-label,
+      .payment-button {
+        display: inline-block;
+        width: calc(50% - 5px);
+        text-align: center;
+        color: white;
+        padding: 12px;
+        border-radius: 10px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease;
+        border: none;
+      }
+
+      .book-now-label {
+        background-color: #1976d2;
+      }
+
+      .payment-button {
+        background-color: #4caf50;
+      }
+
+      .back-button {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background-color: #6c757d;
+        color: white;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-bottom: 30px;
+      }
+
+      .back-button:hover {
+        background-color: #5a6268;
+        transform: scale(1.03);
+      }
+
+      #booked-toggle:checked + .booking-container .book-now-label {
+        background-color: #43a047;
+        pointer-events: none;
+      }
+
+      #booked-toggle:checked + .booking-container .book-now-label::after {
+        content: "Booked";
+      }
+
+      .book-now-label::after {
+        content: "Book Now";
+      }
+
+      .cards-container {
+        margin-top: 80px;
+        max-width: 1000px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .booking-card {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        color: #333;
+        animation: fadeIn 0.5s ease-in-out;
+        width: calc(50% - 10px);
+        min-width: 300px;
+      }
+
+      .booking-card h3 {
+        margin-bottom: 10px;
+        color: #1976d2;
+      }
+
+      .booking-card p {
+        margin: 5px 0;
+      }
+
+      .card-actions {
+        margin-top: 15px;
+        display: flex;
+        gap: 12px;
+      }
+
+      .btn {
+        padding: 8px 15px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        color: white;
+        font-weight: 600;
+        transition: background 0.3s ease;
+      }
+
+      .btn-update {
+        background-color: #0288d1;
+      }
+
+      .btn-update:hover {
+        background-color: #0277bd;
+      }
+
+      .btn-delete {
+        background-color: #e53935;
+      }
+
+      .btn-delete:hover {
+        background-color: #c62828;
+      }
+
+      /* Media Queries */
+      @media (max-width: 1200px) {
         .booking-container {
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            padding: 30px;
-            max-width: 700px;
-            width: 100%;
-            animation: fadeIn 1s ease-in;
-            transition: transform 0.3s ease;
-            backdrop-filter: blur(10px);
-            position: relative; /* To position the back button */
-        }
-
-        .booking-container:hover {
-            transform: translateY(-5px);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+          padding: 25px;
         }
 
         h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: white;
-            font-size: 2rem;
+          font-size: 1.8rem;
+        }
+
+        .book-now-label,
+        .payment-button {
+          font-size: 0.9rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .booking-card {
+          width: 100%;
+          min-width: auto;
         }
 
         form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .full-width {
-            grid-column: 1 / -1;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: 500;
-            color: #fff;
-        }
-
-        input,
-        select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            font-size: 1rem;
-            height: 45px;
-            background: #f9f9f9;
-        }
-
-        #booked-toggle {
-            display: none;
-        }
-
-        .form-actions {
-            grid-column: 1 / -1;
-            display: flex;
-            gap: 10px;
-            justify-content: flex-end; /* Align buttons to the right */
-        }
-
-        .book-now-label, .payment-button {
-            display: inline-block; /* To allow side-by-side arrangement */
-            width: calc(50% - 5px); /* Adjust width for two buttons with gap */
-            text-align: center;
-            color: white;
-            padding: 12px;
-            border-radius: 10px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background 0.3s ease, transform 0.2s ease;
-            border: none;
-        }
-
-        .book-now-label {
-            background-color: #1976d2;
-        }
-
-        .payment-button {
-            background-color: #4CAF50; /* Green color for payment */
+          grid-template-columns: 1fr;
         }
 
         .back-button {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background-color: #6c757d; /* Gray color for back button */
-            color: white;
-            padding: 8px 15px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background 0.3s ease, transform 0.2s ease;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+          top: 20px;
+          left: 20px;
+          padding: 6px 12px;
+          font-size: 0.9rem;
         }
 
-        .back-button:hover {
-            background-color: #5a6268;
-            transform: scale(1.03);
+        .booking-container {
+          padding: 20px;
         }
 
-        #booked-toggle:checked + .booking-container .book-now-label {
-            background-color: #43a047;
-            pointer-events: none;
-        }
-
-        #booked-toggle:checked + .booking-container .book-now-label::after {
-            content: "Booked";
-        }
-
-        .book-now-label::after {
-            content: "Book Now";
-        }
-
-        .cards-container {
-            margin-top: 40px;
-            max-width: 1000px; /* Increased max-width to accommodate side-by-side cards */
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap; /* Enable wrapping for smaller screens */
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .booking-card {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-            color: #333;
-            animation: fadeIn 0.5s ease-in-out;
-            width: calc(50% - 10px); 
-            min-width: 300px;
-        }
-
-        .booking-card h3 {
-            margin-bottom: 10px;
-            color: #1976d2;
-        }
-
-        .booking-card p {
-            margin: 5px 0;
+        h2 {
+          font-size: 1.6rem;
         }
 
         .card-actions {
-            margin-top: 15px;
-            display: flex;
-            gap: 12px;
+          flex-direction: column;
+          gap: 10px;
         }
 
-        .btn {
-            padding: 8px 15px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            color: white;
-            font-weight: 600;
-            transition: background 0.3s ease;
+        .form-actions {
+          flex-direction: column;
+          justify-content: flex-end;
         }
 
-        .btn-update {
-            background-color: #0288d1;
+        .book-now-label,
+        .payment-button {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 600px) {
+        body {
+          font-size: 0.9rem;
         }
 
-        .btn-update:hover {
-            background-color: #0277bd;
+        h2 {
+          font-size: 1.4rem;
         }
 
-        .btn-delete {
-            background-color: #e53935;
+        .back-button {
+          font-size: 0.85rem;
         }
 
-        .btn-delete:hover {
-            background-color: #c62828;
+        .form-actions {
+          flex-direction: column;
+          justify-content: flex-end;
         }
 
-        @media (max-width: 768px) {
-            .booking-card {
-                width: 100%; 
-                min-width: auto;
-            }
+        .book-now-label,
+        .payment-button {
+          width: 100%;
+          padding: 10px;
         }
 
-        @media (max-width: 600px) {
-            form {
-                grid-template-columns: 1fr;
-            }
-
-            .booking-container {
-                padding: 20px;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-            }
-
-            .card-actions {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .form-actions {
-                flex-direction: column;
-                justify-content: flex-end; 
-            }
-
-            .book-now-label, .payment-button {
-                width: 100%;
-            }
+        .booking-card {
+          padding: 15px;
+          width: 100%;
         }
+
+        .booking-container {
+          padding: 15px;
+        }
+      }
     </style>
-</head>
-<body>
-    <button type="button" class="back-button" onclick="window.location.href='packers.html'">
-        &larr; Back to Visiting
+  </head>
+  <body>
+    <button
+      type="button"
+      class="back-button"
+      onclick="window.location.href='packers.html'"
+    >
+      &larr; Back to Visiting
     </button>
     <input type="checkbox" id="booked-toggle" />
 
     <div class="booking-container">
-        <h2>Travel Booking</h2>
-        <form id="booking-form">
-            <div>
-                <label for="from">From</label>
-                <select id="from" required>
-                    <option value="">Select departure city</option>
-                    <option>New York</option>
-                    <option>London</option>
-                    <option>Tokyo</option>
-                    <option>Paris</option>
-                    <option>Dubai</option>
-                    <option>Secunderabad</option>
-                </select>
-            </div>
+      <h2>Travel Booking</h2>
+      <form id="booking-form">
+        <div>
+          <label for="from">From</label>
+          <select id="from" required>
+            <option value="">Select departure city</option>
+            <option>New York</option>
+            <option>London</option>
+            <option>Tokyo</option>
+            <option>Paris</option>
+            <option>Dubai</option>
+            <option>Secunderabad</option>
+          </select>
+        </div>
 
-            <div>
-                <label for="to">To</label>
-                <select id="to" required>
-                    <option value="">Select destination</option>
-                    <option>Rome</option>
-                    <option>Bangkok</option>
-                    <option>Sydney</option>
-                    <option>Berlin</option>
-                    <option>Toronto</option>
-                    <option>Hyderabad</option>
-                </select>
-            </div>
+        <div>
+          <label for="to">To</label>
+          <select id="to" required>
+            <option value="">Select destination</option>
+            <option>Rome</option>
+            <option>Bangkok</option>
+            <option>Sydney</option>
+            <option>Berlin</option>
+            <option>Toronto</option>
+            <option>Hyderabad</option>
+          </select>
+        </div>
 
-            <div>
-                <label for="people">People</label>
-                <input type="number" id="people" min="1" max="20" required />
-            </div>
+        <div>
+          <label for="people">People</label>
+          <input type="number" id="people" min="1" max="20" required />
+        </div>
 
-            <div>
-                <label for="age">Age</label>
-                <input type="number" id="age" min="0" max="100" required />
-            </div>
+        <div>
+          <label for="age">Age</label>
+          <input type="number" id="age" min="0" max="100" required />
+        </div>
 
-            <div class="full-width">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" placeholder="Enter your name" required />
-            </div>
+        <div class="full-width">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Enter your name" required />
+        </div>
 
-            <div class="full-width">
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Enter your email" required />
-            </div>
+        <div class="full-width">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
 
-            <div>
-                <label for="date">Date</label>
-                <input type="date" id="date" required />
-            </div>
+        <div>
+          <label for="date">Date</label>
+          <input type="date" id="date" required />
+        </div>
 
-            <div>
-                <label for="time">Time</label>
-                <select id="time" required>
-                    <option value="">Select Time</option>
-                    <option>10:00 AM</option>
-                    <option>12:00 PM</option>
-                    <option>2:00 PM</option>
-                    <option>4:00 PM</option>
-                    <option>6:00 PM</option>
-                </select>
-            </div>
+        <div>
+          <label for="time">Time</label>
+          <select id="time" required>
+            <option value="">Select Time</option>
+            <option>10:00 AM</option>
+            <option>12:00 PM</option>
+            <option>2:00 PM</option>
+            <option>4:00 PM</option>
+            <option>6:00 PM</option>
+          </select>
+        </div>
 
-            <div class="form-actions">
-                <button type="button" class="payment-button" id="payment-btn">Proceed to Payment</button>
-                <label for="booked-toggle" class="book-now-label" id="submit-btn"></label>
-            </div>
-        </form>
+        <div class="form-actions">
+          <button type="button" class="payment-button" id="payment-btn">
+            Proceed to Payment
+          </button>
+          <label
+            for="booked-toggle"
+            class="book-now-label"
+            id="submit-btn"
+          ></label>
+        </div>
+      </form>
     </div>
 
     <div class="cards-container" id="cards-container"></div>
 
     <script>
-        const form = document.getElementById('booking-form');
-        const submitBtn = document.getElementById('submit-btn');
-        const paymentBtn = document.getElementById('payment-btn');
-        const cardsContainer = document.getElementById('cards-container');
-        const bookedNames = new Set(); 
+      const form = document.getElementById("booking-form");
+      const submitBtn = document.getElementById("submit-btn");
+      const paymentBtn = document.getElementById("payment-btn");
+      const cardsContainer = document.getElementById("cards-container");
+      const bookedNames = new Set();
 
-        submitBtn.addEventListener('click', (e) => {
-            e.preventDefault();
+      submitBtn.addEventListener("click", (e) => {
+        e.preventDefault();
 
-            if (!form.checkValidity()) {
-                form.reportValidity();
-                return;
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        const from = document.getElementById("from").value;
+        const to = document.getElementById("to").value;
+        const people = document.getElementById("people").value;
+        const age = document.getElementById("age").value;
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value;
+        const date = document.getElementById("date").value;
+        const time = document.getElementById("time").value;
+
+        if (bookedNames.has(name.toLowerCase())) {
+          alert(`A booking with the name "${name}" already exists.`);
+          return;
+        }
+
+        bookedNames.add(name.toLowerCase());
+
+        const bookingData = {
+          from,
+          to,
+          people,
+          age,
+          name,
+          email,
+          date,
+          time,
+        };
+
+        const card = document.createElement("div");
+        card.className = "booking-card";
+
+        card.innerHTML = `
+
+        <h3>${bookingData.name}</h3>
+        <p><strong>Email:</strong> ${bookingData.email}</p>
+        <p><strong>From:</strong> ${bookingData.from} → <strong>To:</strong> ${bookingData.to}</p>
+        <p><strong>People:</strong> ${bookingData.people}, <strong>Age:</strong> ${bookingData.age}</p>
+        <p><strong>Date:</strong> ${bookingData.date}, <strong>Time:</strong> ${bookingData.time}</p>
+        <div class="card-actions">
+            <button class="btn btn-update" data-name="${bookingData.name}">Update</button>
+            <button class="btn btn-delete" data-name="${bookingData.name}">Delete</button>
+        </div>
+    `;
+
+        card
+          .querySelector(".btn-delete")
+          .addEventListener("click", function () {
+            const nameToDelete = this.dataset.name.toLowerCase();
+            bookedNames.delete(nameToDelete);
+            card.remove();
+          });
+
+        card
+          .querySelector(".btn-update")
+          .addEventListener("click", function () {
+            const nameToUpdate = this.dataset.name;
+            const existingCard = Array.from(cardsContainer.children).find(
+              (c) => c.querySelector("h3").textContent === nameToUpdate
+            );
+
+            if (existingCard) {
+              const fromValue = existingCard
+                .querySelector(`p:contains('${bookingData.from}')`)
+                .textContent.split("→")[0]
+                .split(": ")[1]
+                .trim();
+              const toValue = existingCard
+                .querySelector(`p:contains('${bookingData.to}')`)
+                .textContent.split("→")[1]
+                .trim();
+              const peopleValue = existingCard
+                .querySelector(`p:contains('${bookingData.people}')`)
+                .textContent.split(",")[0]
+                .split(": ")[1]
+                .trim();
+              const ageValue = existingCard
+                .querySelector(`p:contains('${bookingData.age}')`)
+                .textContent.split(": ")[1]
+                .trim();
+              const emailValue = existingCard
+                .querySelector(`p:contains('${bookingData.email}')`)
+                .textContent.split(": ")[1]
+                .trim();
+              const dateValue = existingCard
+                .querySelector(`p:contains('${bookingData.date}')`)
+                .textContent.split(": ")[1]
+                .trim();
+              const timeValue = existingCard
+                .querySelector(`p:contains('${bookingData.time}')`)
+                .textContent.split(": ")[1]
+                .trim();
+
+              form.querySelector("#from").value = fromValue;
+              form.querySelector("#to").value = toValue;
+              form.querySelector("#people").value = peopleValue;
+              form.querySelector("#age").value = ageValue;
+              form.querySelector("#email").value = emailValue;
+              form.querySelector("#date").value = dateValue;
+              form.querySelector("#time").value = timeValue;
             }
+          });
 
-            const from = document.getElementById('from').value;
-            const to = document.getElementById('to').value;
-            const people = document.getElementById('people').value;
-            const age = document.getElementById('age').value;
-            const name = document.getElementById('name').value.trim(); 
-            const email = document.getElementById('email').value;
-            const date = document.getElementById('date').value;
-            const time = document.getElementById('time').value;
+        cardsContainer.appendChild(card);
 
-            if (bookedNames.has(name.toLowerCase())) {
-                alert(`A booking with the name "${name}" already exists.`);
-                return;
-            }
+        form.reset();
+      });
 
-            bookedNames.add(name.toLowerCase());
-
-            const bookingData = {
-                from,
-                to,
-                people,
-                age,
-                name,
-                email,
-                date,
-                time,
-            };
-
-            const card = document.createElement('div');
-            card.className = 'booking-card';
-
-            card.innerHTML = `
-                <h3>${bookingData.name}</h3>
-                <p><strong>Email:</strong> ${bookingData.email}</p>
-                <p><strong>From:</strong> ${bookingData.from} → <strong>To:</strong> ${bookingData.to}</p>
-                <p><strong>People:</strong> ${bookingData.people}, <strong>Age:</strong> ${bookingData.age}</p>
-                <p><strong>Date:</strong> ${bookingData.date}, <strong>Time:</strong> ${bookingData.time}</p>
-                <div class="card-actions">
-                    <button class="btn btn-update" data-name="${bookingData.name}">Update</button>
-                    <button class="btn btn-delete" data-name="${bookingData.name}">Delete</button>
-                </div>
-            `;
-
-            card.querySelector('.btn-delete').addEventListener('click', function() {
-                const nameToDelete = this.dataset.name.toLowerCase();
-                bookedNames.delete(nameToDelete);
-                card.remove();
-            });
-
-            card.querySelector('.btn-update').addEventListener('click', function() {
-                const nameToUpdate = this.dataset.name;
-                const existingCard = Array.from(cardsContainer.children).find(c => c.querySelector('h3').textContent === nameToUpdate);
-
-                if (existingCard) {
-                    const fromValue = existingCard.querySelector(`p:contains('${bookingData.from}')`).textContent.split('→')[0].split(': ')[1].trim();
-                    const toValue = existingCard.querySelector(`p:contains('${bookingData.to}')`).textContent.split('→')[1].trim();
-                    const peopleValue = existingCard.querySelector(`p:contains('${bookingData.people}')`).textContent.split(',')[0].split(': ')[1].trim();
-                    const ageValue = existingCard.querySelector(`p:contains('${bookingData.age}')`).textContent.split(': ')[1].trim();
-                    const emailValue = existingCard.querySelector(`p:contains('${bookingData.email}')`).textContent.split(': ')[1].trim();
-                    const dateValue = existingCard.querySelector(`p:contains('${bookingData.date}')`).textContent.split(': ')[1].trim();
-                    const timeValue = existingCard.querySelector(`p:contains('${bookingData.time}')`).textContent.split(': ')[1].trim();
-
-                    document.getElementById('from').value = fromValue;
-                    document.getElementById('to').value = toValue;
-                    document.getElementById('people').value = peopleValue;
-                    document.getElementById('age').value = ageValue;
-                    document.getElementById('name').value = nameToUpdate;
-                    document.getElementById('email').value = emailValue;
-                    document.getElementById('date').value = dateValue;
-                    document.getElementById('time').value = timeValue;
-
-                    bookedNames.delete(nameToUpdate.toLowerCase());
-                    existingCard.remove();
-                }
-            });
-
-            cardsContainer.appendChild(card);
-            form.reset();
-        });
-
-        paymentBtn.addEventListener('click', () => {
-            if (!form.checkValidity()) {
-                form.reportValidity();
-                return;
-            }
-           
-            window.location.href = 'payment.html'; 
-        });
+      paymentBtn.addEventListener("click", () => {
+        alert("Redirecting to Payment Gateway...");
+      });
     </script>
-</body>
+  </body>
 </html>

@@ -14,26 +14,26 @@ body {
   background: #56B1F7;
   padding: 10px 20px;
   color: white;
-  transition: background 0.3s ease; /* Transition for background color change */
   position: sticky;
-  top:0;
+  top: 0;
   z-index: 1000;
+  transition: background 0.3s ease;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
   gap: 10px;
-  transition: transform 0.3s ease; /* Logo scaling on hover */
+  transition: transform 0.3s ease;
 }
 
 .logo {
   height: 40px;
   width: auto;
-  transition: transform 0.3s ease; /* Smooth scaling for logo */
+  transition: transform 0.3s ease;
 }
 
-/* Logo animation */
+/* Logo hover animation */
 .logo-container:hover .logo {
   transform: scale(1.1);
 }
@@ -42,27 +42,27 @@ body {
 .toggle {
   background: none;
   border: none;
-  font-size: 30px;
+  font-size: 2rem;
   color: white;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 
-.toggle:hover {
-  transform: rotate(90deg); /* Rotate toggle on hover */
-}
+/* .toggle:hover {
+  transform: rotate(90deg);
+} */
 
 /* Menu Styles */
 .menu {
   display: flex;
   gap: 20px;
   align-items: center;
-  display: none; /* Initially hidden */
+  display: none; /* Hidden by default */
   transition: transform 0.3s ease-out;
 }
 
 .menu.active {
-  display: flex; /* Show the menu when active */
+  display: flex;
   transform: translateX(0);
 }
 
@@ -71,12 +71,12 @@ body {
   color: white;
   text-decoration: none;
   font-size: 1rem;
-  padding: 5px 10px;
+  padding: 8px 12px;
   border-radius: 5px;
   transition: background 0.3s ease, transform 0.3s ease;
 }
 
-/* Hover Effect for Menu Links */
+/* Menu Links Hover */
 .menu a:hover {
   background: rgba(255, 255, 255, 0.2);
   transform: translateX(5px);
@@ -99,35 +99,111 @@ body {
   transform: translateY(-3px);
 }
 
-/* Responsive Styles */
+/* ----------- Responsive Breakpoints ----------- */
+
+/* Medium Devices (Tablets) */
 @media (max-width: 1024px) {
   .menu {
     flex-direction: column;
     gap: 15px;
+    background: #56B1F7;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   }
-}
 
-@media (max-width: 600px) {
-  .menu {
-    flex-direction: column;
-    gap: 10px;
+  .toggle {
+    font-size: 2.2rem;
   }
-  .logo-container {
-    flex-direction: column;
+
+  .menu a {
+    font-size: 1rem;
     text-align: center;
   }
 }
 
-/* body start */
+/* Small Devices (Mobiles) */
+@media (max-width: 600px) {
+  .nav {
+    flex-direction: row;
+    padding: 8px 15px;
+  }
+
+  .logo-container {
+    flex-direction: row;
+    text-align: center;
+  }
+
+  .logo {
+    height: 35px;
+  }
+
+  .toggle {
+    font-size: 2rem;
+  }
+
+  .menu {
+    top: 55px;
+    right: 10px;
+    gap: 10px;
+  }
+
+  .menu a {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+
+  #btn {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+}
+/* Wall TV Devices (Large Screens / 4K TVs) */
+@media (min-width: 1920px) {
+  .nav {
+    padding: 20px 60px;
+    font-size: 1.5rem;
+  }
+
+  .logo {
+    height: 60px;
+  }
+
+  .toggle {
+    font-size: 3rem;
+  }
+
+  .menu {
+    gap: 30px;
+  }
+
+  .menu a {
+    font-size: 1.5rem;
+    padding: 10px 20px;
+  }
+
+  #btn {
+    font-size: 1.5rem;
+    padding: 15px 25px;
+  }
+}
+
+
+/* Body Start */
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-image: url("https://images.pexels.com/photos/1687845/pexels-photo-1687845.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed; /* Smooth scrolling background */
+  padding: 20px;
 }
 
 ::-webkit-scrollbar {
@@ -137,12 +213,14 @@ body {
 .box {
   border: 4px solid black;
   width: 650px;
-  height: 350px;
+  height: auto;
   padding: 100px;
   text-align: center;
   font-size: 20px;
   border-radius: 15px;
   box-shadow: 3px 3px 9px 3px black;
+  background: rgba(0, 0, 0, 0.3); /* subtle background inside box */
+  backdrop-filter: blur(5px);
 
   /* Animation */
   opacity: 0;
@@ -163,19 +241,15 @@ body {
   color: white;
   text-shadow: 4px 3px 5px black;
   margin-top: -10px;
-
-  /* Animation */
   opacity: 0;
   animation: fadeIn 1s ease-in-out 0.5s forwards;
 }
 
 .box p {
-  font-size: 18.9px;
+  font-size: 19px;
   margin-bottom: 15px;
   color: white;
   text-shadow: 4px 3px 5px black;
-
-  /* Animation */
   opacity: 0;
   animation: fadeIn 1s ease-in-out 1s forwards;
 }
@@ -188,8 +262,6 @@ body {
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
-
-  /* Animation */
   opacity: 0;
   animation: fadeIn 1s ease-in-out 1.5s forwards;
 }
@@ -204,11 +276,29 @@ body {
   }
 }
 
+/* Responsive Media Queries */
 
+/* Tablet Devices */
 @media (max-width: 1024px) {
   .box {
-    max-width: 550px;
-    padding: 30px;
+    width: 90%;
+    padding: 60px;
+  }
+
+  .box h1 {
+    font-size: 28px;
+  }
+
+  .box p {
+    font-size: 17px;
+  }
+}
+
+/* Small Tablets / Large Phones */
+@media (max-width: 768px) {
+  .box {
+    width: 90%;
+    padding: 40px;
   }
 
   .box h1 {
@@ -218,77 +308,98 @@ body {
   .box p {
     font-size: 16px;
   }
+
+  .box a {
+    padding: 8px 18px;
+    font-size: 15px;
+  }
 }
 
-@media (max-width: 768px) {
+/* Mobile Phones */
+@media (max-width: 480px) {
+  .container {
+    background-size: cover;
+    background-position: center;
+  }
+
   .box {
-    max-width: 450px;
-    padding: 25px;
+    width: 100%;
+    padding: 30px;
   }
 
   .box h1 {
     font-size: 24px;
+    margin-top: 20px;
   }
 
   .box p {
     font-size: 15px;
   }
+
+  .box a {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
 }
 
-@media (max-width: 480px) {
+/* Extra Small Devices (320px - 608px) */
+@media (min-width: 320px) and (max-width: 608px) {
   .container {
-    height: 100vh;
-    background-position: center;
+    padding: 15px;
     background-size: cover;
   }
 
   .box {
-    max-width: 90%;
-    padding: 20px;
+    width: 100%;
+    padding: 25px;
   }
 
   .box h1 {
     font-size: 22px;
+    margin-top: 30px;
   }
 
   .box p {
     font-size: 14px;
+    margin-top: 10px;
   }
 
   .box a {
-    padding: 8px 15px;
-    font-size: 14px;
-  }
-  @media (min-width: 320px) and (max-width: 608px) {
-    .container {
-      height: 100vh;
-      background-size: cover;
-      padding: 20px;
-    }
-
-    .box {
-      max-width: 90%;
-      padding: 20px;
-    }
-
-    .box h1 {
-      font-size: 22px;
-      margin-top: 40px;
-    }
-
-    .box p {
-      font-size: 14px;
-      margin-top: 10px;
-    }
-
-    .box a {
-      padding: 8px 15px;
-      font-size: 14px;
-      margin-top: 4px;
-    }
+    padding: 8px 14px;
+    font-size: 13px;
+    margin-top: 5px;
   }
 }
-/* body ends */
+
+/* Wall TV or Extra Large Screens */
+@media (min-width: 1920px) {
+  .container {
+    background-size: cover;
+    background-position: center;
+    padding: 50px;
+  }
+
+  .box {
+    width: 800px;
+    padding: 150px;
+  }
+
+  .box h1 {
+    font-size: 48px;
+  }
+
+  .box p {
+    font-size: 24px;
+  }
+
+  .box a {
+    padding: 15px 30px;
+    font-size: 22px;
+  }
+}
+
+/* Body End */
+
 
 /* about start */
 .about {
@@ -296,9 +407,10 @@ body {
   align-items: center;
   justify-content: center;
   gap: 35px;
-  padding: 40px;
+  padding:150px;
   margin: auto;
-  background-color: #FFD89C ;
+  background-color: #56B1F7; /* Matches homepage */
+  flex-wrap: wrap;
 
   /* Animation Container */
   opacity: 0;
@@ -337,7 +449,8 @@ body {
 .text {
   flex: 1;
   font-size: 18px;
-  color: #333;
+  color: black;
+  text-shadow: 1px 1px 3px white;
 
   /* Text animation */
   opacity: 0;
@@ -359,28 +472,48 @@ body {
 .about .btn {
   display: flex;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .about .btn button {
   background-color: green;
   color: white;
-  padding: 10px 20px;
+  padding: 10px 25px;
   border: none;
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .about .btn button:hover {
   background-color: darkgreen;
+  transform: translateY(-2px);
 }
 
+/* Tablet */
+@media (max-width: 1024px) {
+  .text {
+    font-size: 17px;
+  }
+
+  .about .btn button {
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+}
+
+/* Small Tablets and Mobile */
 @media (max-width: 768px) {
   .about {
     flex-direction: column;
     text-align: center;
     gap: 20px;
+    padding: 30px;
+  }
+
+  .text {
+    font-size: 16px;
   }
 
   .img img {
@@ -388,28 +521,84 @@ body {
   }
 }
 
+/* Mobile Phones */
+@media (max-width: 480px) {
+  .about {
+    padding: 20px;
+  }
+
+  .text {
+    font-size: 15px;
+  }
+
+  .about .btn button {
+    padding: 8px 18px;
+    font-size: 14px;
+  }
+}
+
+/* Extra Small Phones */
+@media (min-width: 320px) and (max-width: 380px) {
+  .text {
+    font-size: 14px;
+  }
+
+  .about .btn button {
+    font-size: 13px;
+  }
+}
+
+/* Wall TV or Ultra-Wide Displays */
+@media (min-width: 1920px) {
+  .about {
+    padding: 80px;
+    gap: 50px;
+  }
+
+  .img img {
+    max-width: 500px;
+  }
+
+  .text {
+    font-size: 24px;
+  }
+
+  .about .btn button {
+    font-size: 20px;
+    padding: 15px 30px;
+  }
+}
 /* about end */
-/* sever start */
+
+/* service start */
 .service {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  padding: 150px;
-  background-color:#A8D6F1;
+  padding: 80px;
+  background-color: wheat; /* Match home page */
+  box-sizing: border-box;
 }
 
 .service > div {
   flex: 1 1 calc(25% - 20px);
-  background:	#5A7BA2;
-  padding: 20px;
+  background: #5A7BA2;
+  padding: 30px;
   border-radius: 10px;
   border: 2px solid black;
   text-align: center;
-  color:black;
+  color: white;
   box-shadow: 2px 2px 10px 4px black;
   transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
   box-sizing: border-box;
+  min-height: 320px; /* Equal height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* Animation */
   opacity: 0;
   animation: fadeUp 0.8s ease forwards;
 }
@@ -428,10 +617,12 @@ body {
 .service svg {
   margin-bottom: 15px;
   fill: white;
+  height: 50px;
+  width: 50px;
 }
 
 .service h1 {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   margin: 10px 0;
 }
 
@@ -439,18 +630,72 @@ body {
   font-size: 1rem;
 }
 
+/* Tablet view */
 @media (max-width: 1024px) {
+  .service {
+    padding: 60px;
+  }
   .service > div {
     flex: 1 1 calc(50% - 20px);
+    min-height: 280px;
+  }
+  .service h1 {
+    font-size: 1.4rem;
+  }
+  .service p {
+    font-size: 0.95rem;
   }
 }
 
-@media (max-width: 600px) {
+/* Mobile view */
+@media (max-width: 768px) {
+  .service {
+    padding: 40px;
+  }
   .service > div {
     flex: 1 1 100%;
+    min-height: 260px;
+  }
+  .service h1 {
+    font-size: 1.2rem;
+  }
+  .service p {
+    font-size: 0.9rem;
   }
 }
 
+/* Extra small devices */
+@media (max-width: 480px) {
+  .service {
+    padding: 30px 20px;
+  }
+  .service h1 {
+    font-size: 1.1rem;
+  }
+  .service p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Wall TV / large screens */
+@media (min-width: 1920px) {
+  .service {
+    padding: 100px;
+    gap: 30px;
+  }
+  .service > div {
+    min-height: 350px;
+    padding: 40px;
+  }
+  .service h1 {
+    font-size: 2rem;
+  }
+  .service p {
+    font-size: 1.2rem;
+  }
+}
+
+/* Animation keyframe */
 @keyframes fadeUp {
   0% {
     opacity: 0;
@@ -461,18 +706,8 @@ body {
     transform: translateY(0);
   }
 }
-
-@media (max-width: 1024px) {
-  .service > div {
-    flex: 1 1 calc(50% - 20px);
-  }
-}
-@media (max-width: 600px) {
-  .service > div {
-    flex: 1 1 100%;
-  }
-}
 /* service end */
+
 /* our gallary */
 /* 🔹 Gallery */
 .container1 {
@@ -616,18 +851,18 @@ body {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background-color:#92A5B3; /* Light gray background for the outer box */
+  background-color:cornsilk; /* Light blue background for the outer box, matches home page */
 }
 
 /* Container for the entire content */
 .customer-feedback {
   width: 100%;
-  max-width: 800px; /* Limit the width of the content */
-  background-color: #ffffff; /* White background for the form and review cards */
+  /* max-width: 1000px; 
+  background-color: #ffffff;  */
   padding: 20px;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   color: black;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow for better visual appeal */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visual appeal */
 }
 
 /* Flexbox to center the content */
@@ -656,7 +891,7 @@ body {
 .feedback-form label {
   margin-bottom: 5px;
   font-size: 1.2em;
-  color: #333; /* Make label text dark */
+  color: #333; /* Dark label text */
 }
 
 /* Add some styles for the image */
@@ -668,14 +903,14 @@ body {
 
 /* Styling for reviews section (Card style) */
 .feedback-item {
-  background-color:#45008a; /* Light background for card */
+  background-color: #45008a; /* Light background for the card */
   border-radius: 8px; /* Rounded corners */
   padding: 20px; /* Space inside the card */
   margin-bottom: 15px; /* Space between cards */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for card effect */
   display: flex;
-  font-size: x-large;
-  color:white;
+  font-size: large;
+  color: white;
   flex-direction: column;
   border: 1px solid #ddd; /* Border around the card */
 }
@@ -683,15 +918,15 @@ body {
 /* Container for multiple feedback items */
 .feedback-container {
   display: flex;
-  flex-direction: column;
-  gap: 15px; /* Space between each review card */
+  flex-wrap: wrap; /* Allows feedback cards to be side by side on larger screens */
+  gap: 20px; /* Space between cards */
+  justify-content: center; /* Center the cards */
 }
 
 /* Flexbox container inside each feedback item */
 .feedback-info {
   margin-bottom: 10px; /* Space between name and feedback text */
   flex: 1;
-
 }
 
 /* Styling for images inside feedback */
@@ -717,7 +952,7 @@ body {
 
 .feedback-text {
   font-size: 1em;
-  color:white; /* Darker color for feedback text */
+  color: white; /* Darker color for feedback text */
   margin-top: 5px;
 }
 
@@ -743,24 +978,49 @@ body {
   background-color: #ff0000; /* Change color on hover */
 }
 
-/* Responsive design adjustments */
+/* Responsive design adjustments for tablets and mobile */
+
+/* Tablet view */
 @media (max-width: 768px) {
   .feedback-item {
     width: 100%;
-    max-width: 600px;
+    max-width: 600px; /* Max width for feedback cards on tablet */
     margin: 0 auto; /* Center reviews on tablets */
+  }
+
+  .feedback-container {
+    flex-direction: column; /* Stack feedback items vertically on tablet */
+  }
+
+  .feedback-item {
+    font-size: medium; /* Adjust font size for tablets */
   }
 }
 
+/* Mobile view */
 @media (max-width: 480px) {
   .feedback-item {
     width: 100%;
-    max-width: 100%;
+    max-width: 100%; /* Feedback cards take full width on mobile */
+  }
+
+  .feedback-item {
+    font-size: small; /* Adjust font size for mobile */
   }
 }
 
+/* Large Screen */
+@media (min-width: 1920px) {
+  .customer-feedback {
+    max-width: 1200px; /* Increase width on large screens */
+  }
 
+  .feedback-item {
+    font-size: large; /* Adjust font size for large screens */
+  }
+}
 /* review end */
+
 
 /* contact start */
 .contact-container {
